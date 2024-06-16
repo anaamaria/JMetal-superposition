@@ -1,0 +1,2136 @@
+Layers: 16
+
+Cycles: 659435
+Exec. instructions: 752444
+IPC: 1.14104
+
+Loop Hits: 30799
+Layer Hits: 13041
+Layer Misses: 4426
+Total Hits: 43840
+
+Hitrate Loops: 0.63811
+Hitrate Layers: 0.27019
+Hitrate Total: 1.24457
+
+
+Layer full because not enough rows (1):        784
+Layer full because not enough columns (2):     56
+Layer full because not enough multipliers (3): 363
+Layer full because not enough MEM/BRANCH (4):  357
+
+
+Average time between two reconfigurations (layer misses): 148.979
+Min Number of cycles between 98 percent of all reconfigurations (layer misses): 27
+Min Number of cycles between 95 percent of all reconfigurations (layer misses): 34
+Min Number of cycles between 90 percent of all reconfigurations (layer misses): 59
+Min Number of cycles between 80 percent of all reconfigurations (layer misses): 102
+Detailed information: 
+   1 cycles:      1 times  fraction of sum    1 ##############
+   2 cycles:      2 times  fraction of sum    1 ##############
+   3 cycles:     58 times  fraction of sum 0.9997 ##############
+   4 cycles:     76 times  fraction of sum 0.9993 ##############
+   5 cycles:    125 times  fraction of sum 0.9983 ##############
+   6 cycles:    113 times  fraction of sum 0.9973 ##############
+   7 cycles:     82 times  fraction of sum 0.9964 ##############
+   8 cycles:    280 times  fraction of sum 0.993 ##############
+   9 cycles:     70 times  fraction of sum 0.9921 ##############
+  10 cycles:     28 times  fraction of sum 0.9916 ##############
+  11 cycles:     41 times  fraction of sum 0.991 ##############
+  12 cycles:     83 times  fraction of sum 0.9894 ##############
+  13 cycles:      3 times  fraction of sum 0.9894 ##############
+  14 cycles:     41 times  fraction of sum 0.9885 ##############
+  16 cycles:      1 times  fraction of sum 0.9885 ##############
+  17 cycles:     20 times  fraction of sum 0.988 ##############
+  18 cycles:     19 times  fraction of sum 0.9875 ##############
+  19 cycles:      1 times  fraction of sum 0.9874 ##############
+  20 cycles:     41 times  fraction of sum 0.9862 ##############
+  21 cycles:     19 times  fraction of sum 0.9856 ##############
+  22 cycles:      1 times  fraction of sum 0.9856 ##############
+  24 cycles:     42 times  fraction of sum 0.984 ##############
+  25 cycles:     23 times  fraction of sum 0.9831 ##############
+  26 cycles:      1 times  fraction of sum 0.9831 ##############
+  27 cycles:    115 times  fraction of sum 0.9784 ##############
+  28 cycles:      2 times  fraction of sum 0.9783 ##############
+  29 cycles:     84 times  fraction of sum 0.9746 ##############
+  30 cycles:     90 times  fraction of sum 0.9705 ##############
+  31 cycles:     83 times  fraction of sum 0.9666 ##############
+  32 cycles:    178 times  fraction of sum 0.958 ##############
+  33 cycles:    114 times  fraction of sum 0.9523 ##############
+  34 cycles:     56 times  fraction of sum 0.9494 ##############
+  35 cycles:    144 times  fraction of sum 0.9417 ##############
+  36 cycles:    109 times  fraction of sum 0.9358 ##############
+  37 cycles:     85 times  fraction of sum 0.931 #############
+  38 cycles:     63 times  fraction of sum 0.9274 #############
+  39 cycles:     23 times  fraction of sum 0.926 #############
+  40 cycles:      1 times  fraction of sum 0.926 #############
+  41 cycles:     57 times  fraction of sum 0.9224 #############
+  42 cycles:     43 times  fraction of sum 0.9197 #############
+  43 cycles:      2 times  fraction of sum 0.9196 #############
+  45 cycles:      1 times  fraction of sum 0.9195 #############
+  46 cycles:      1 times  fraction of sum 0.9194 #############
+  47 cycles:      1 times  fraction of sum 0.9194 #############
+  48 cycles:      1 times  fraction of sum 0.9193 #############
+  49 cycles:      2 times  fraction of sum 0.9191 #############
+  50 cycles:      4 times  fraction of sum 0.9188 #############
+  51 cycles:      4 times  fraction of sum 0.9185 #############
+  52 cycles:      5 times  fraction of sum 0.9181 #############
+  53 cycles:      8 times  fraction of sum 0.9175 #############
+  54 cycles:      5 times  fraction of sum 0.9171 #############
+  55 cycles:      4 times  fraction of sum 0.9167 #############
+  56 cycles:     24 times  fraction of sum 0.9147 #############
+  57 cycles:     66 times  fraction of sum 0.909 #############
+  58 cycles:     78 times  fraction of sum 0.9021 #############
+  59 cycles:     85 times  fraction of sum 0.8945 #############
+  60 cycles:      5 times  fraction of sum 0.8941 #############
+  61 cycles:     62 times  fraction of sum 0.8883 #############
+  62 cycles:     72 times  fraction of sum 0.8816 #############
+  63 cycles:     50 times  fraction of sum 0.8768 #############
+  64 cycles:     61 times  fraction of sum 0.8709 #############
+  65 cycles:     25 times  fraction of sum 0.8684 #############
+  66 cycles:      2 times  fraction of sum 0.8682 #############
+  67 cycles:      2 times  fraction of sum 0.868 #############
+  68 cycles:      3 times  fraction of sum 0.8677 #############
+  69 cycles:     20 times  fraction of sum 0.8656 ############
+  70 cycles:     19 times  fraction of sum 0.8636 ############
+  71 cycles:      3 times  fraction of sum 0.8633 ############
+  73 cycles:      1 times  fraction of sum 0.8632 ############
+  74 cycles:      2 times  fraction of sum 0.8629 ############
+  77 cycles:      1 times  fraction of sum 0.8628 ############
+  78 cycles:      5 times  fraction of sum 0.8622 ############
+  79 cycles:      2 times  fraction of sum 0.862 ############
+  80 cycles:     19 times  fraction of sum 0.8597 ############
+  81 cycles:     45 times  fraction of sum 0.8541 ############
+  82 cycles:     40 times  fraction of sum 0.8492 ############
+  83 cycles:      1 times  fraction of sum 0.849 ############
+  84 cycles:      2 times  fraction of sum 0.8488 ############
+  85 cycles:     10 times  fraction of sum 0.8475 ############
+  86 cycles:     77 times  fraction of sum 0.8375 ############
+  87 cycles:     52 times  fraction of sum 0.8306 ############
+  88 cycles:     32 times  fraction of sum 0.8263 ############
+  89 cycles:      1 times  fraction of sum 0.8262 ############
+  90 cycles:     30 times  fraction of sum 0.8221 ############
+  91 cycles:     20 times  fraction of sum 0.8193 ############
+  92 cycles:      1 times  fraction of sum 0.8192 ############
+  93 cycles:     39 times  fraction of sum 0.8137 ############
+  94 cycles:      1 times  fraction of sum 0.8136 ############
+  95 cycles:     62 times  fraction of sum 0.8046 ############
+  96 cycles:      1 times  fraction of sum 0.8045 ############
+  97 cycles:      3 times  fraction of sum 0.804 ############
+  98 cycles:      1 times  fraction of sum 0.8039 ############
+  99 cycles:      2 times  fraction of sum 0.8036 ############
+ 100 cycles:     22 times  fraction of sum 0.8002 ############
+ 101 cycles:      1 times  fraction of sum 0.8001 ############
+ 102 cycles:     19 times  fraction of sum 0.7972 ###########
+ 103 cycles:      2 times  fraction of sum 0.7968 ###########
+ 104 cycles:     22 times  fraction of sum 0.7934 ###########
+ 107 cycles:     21 times  fraction of sum 0.79 ###########
+ 110 cycles:      1 times  fraction of sum 0.7898 ###########
+ 112 cycles:     59 times  fraction of sum 0.7798 ###########
+ 115 cycles:     38 times  fraction of sum 0.7732 ###########
+ 116 cycles:      4 times  fraction of sum 0.7724 ###########
+ 117 cycles:      1 times  fraction of sum 0.7723 ###########
+ 119 cycles:      2 times  fraction of sum 0.7719 ###########
+ 120 cycles:     58 times  fraction of sum 0.7614 ###########
+ 122 cycles:      1 times  fraction of sum 0.7612 ###########
+ 123 cycles:      1 times  fraction of sum 0.761 ###########
+ 125 cycles:      1 times  fraction of sum 0.7608 ###########
+ 127 cycles:      1 times  fraction of sum 0.7606 ###########
+ 128 cycles:      1 times  fraction of sum 0.7604 ###########
+ 129 cycles:     19 times  fraction of sum 0.7567 ###########
+ 132 cycles:      1 times  fraction of sum 0.7565 ###########
+ 136 cycles:      1 times  fraction of sum 0.7563 ###########
+ 137 cycles:      2 times  fraction of sum 0.7559 ###########
+ 138 cycles:     18 times  fraction of sum 0.7521 ###########
+ 139 cycles:      3 times  fraction of sum 0.7515 ###########
+ 141 cycles:     20 times  fraction of sum 0.7472 ###########
+ 142 cycles:      1 times  fraction of sum 0.747 ###########
+ 145 cycles:     22 times  fraction of sum 0.7421 ###########
+ 146 cycles:      1 times  fraction of sum 0.7419 ###########
+ 147 cycles:     19 times  fraction of sum 0.7377 ###########
+ 148 cycles:     19 times  fraction of sum 0.7334 ###########
+ 149 cycles:     20 times  fraction of sum 0.7289 ##########
+ 150 cycles:      1 times  fraction of sum 0.7287 ##########
+ 151 cycles:     21 times  fraction of sum 0.7239 ##########
+ 154 cycles:      2 times  fraction of sum 0.7234 ##########
+ 157 cycles:      1 times  fraction of sum 0.7232 ##########
+ 160 cycles:      1 times  fraction of sum 0.7229 ##########
+ 167 cycles:      1 times  fraction of sum 0.7227 ##########
+ 171 cycles:     37 times  fraction of sum 0.7131 ##########
+ 172 cycles:      1 times  fraction of sum 0.7128 ##########
+ 175 cycles:      2 times  fraction of sum 0.7123 ##########
+ 177 cycles:      1 times  fraction of sum 0.712 ##########
+ 179 cycles:      1 times  fraction of sum 0.7117 ##########
+ 180 cycles:      1 times  fraction of sum 0.7115 ##########
+ 188 cycles:      1 times  fraction of sum 0.7112 ##########
+ 195 cycles:     56 times  fraction of sum 0.6946 ##########
+ 196 cycles:      9 times  fraction of sum 0.6919 ##########
+ 197 cycles:     28 times  fraction of sum 0.6836 ##########
+ 202 cycles:     19 times  fraction of sum 0.6777 ##########
+ 203 cycles:      1 times  fraction of sum 0.6774 ##########
+ 217 cycles:      1 times  fraction of sum 0.6771 ##########
+ 224 cycles:     59 times  fraction of sum 0.6571 #########
+ 227 cycles:     56 times  fraction of sum 0.6378 #########
+ 229 cycles:     19 times  fraction of sum 0.6312 #########
+ 240 cycles:     19 times  fraction of sum 0.6243 #########
+ 244 cycles:     19 times  fraction of sum 0.6172 #########
+ 245 cycles:      1 times  fraction of sum 0.6169 #########
+ 251 cycles:      1 times  fraction of sum 0.6165 #########
+ 271 cycles:      1 times  fraction of sum 0.6161 #########
+ 317 cycles:     19 times  fraction of sum 0.6069 #########
+ 438 cycles:     19 times  fraction of sum 0.5943 ########
+ 442 cycles:      1 times  fraction of sum 0.5937 ########
+ 701 cycles:      1 times  fraction of sum 0.5926 ########
+1008 cycles:      1 times  fraction of sum 0.5911 ########
+1048 cycles:      1 times  fraction of sum 0.5895 ########
+1066 cycles:     18 times  fraction of sum 0.5604 ########
+1087 cycles:      1 times  fraction of sum 0.5587 ########
+1132 cycles:     19 times  fraction of sum 0.5261 #######
+1133 cycles:      1 times  fraction of sum 0.5244 #######
+2128 cycles:      1 times  fraction of sum 0.5212 #######
+2189 cycles:      1 times  fraction of sum 0.5178 #######
+2200 cycles:      8 times  fraction of sum 0.4912 #######
+2201 cycles:      9 times  fraction of sum 0.4611 ######
+2400 cycles:      1 times  fraction of sum 0.4575 ######
+2774 cycles:      1 times  fraction of sum 0.4533 ######
+2833 cycles:      2 times  fraction of sum 0.4447 ######
+2855 cycles:     18 times  fraction of sum 0.3667 #####
+2877 cycles:     18 times  fraction of sum 0.2882 ####
+2979 cycles:      1 times  fraction of sum 0.2837 ####
+3000 cycles:     18 times  fraction of sum 0.2018 ###
+3451 cycles:      1 times  fraction of sum 0.1965 ##
+5476 cycles:      2 times  fraction of sum 0.1799 ##
+5477 cycles:     17 times  fraction of sum 0.03873 
+8454 cycles:      2 times  fraction of sum 0.01309 
+8631 cycles:      1 times  fraction of sum    0 
+
+
+Max executed layer is executed 10190 times.
+  * Layer starting at 401c40
+    - 0 insns executed in...
+      o MISS    0 cycles:   41 times ##################
+      o HIT     0 cycles: 10149 times ##############################################
+    - 41 in 0 cycles => AVG of 0 cycles per miss 
+    - 10149 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4029a0
+    - 0 insns executed in...
+      o MISS    0 cycles:   40 times ##################
+      o HIT     0 cycles: 10120 times ##############################################
+    - 40 in 0 cycles => AVG of 0 cycles per miss 
+    - 10120 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 400710
+    - 0 insns executed in...
+      o MISS    0 cycles:   40 times ##################
+      o HIT     0 cycles: 7560 times ############################################
+    - 40 in 0 cycles => AVG of 0 cycles per miss 
+    - 7560 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 400880
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+      o HIT     0 cycles: 3040 times ########################################
+    - 20 in 0 cycles => AVG of 0 cycles per miss 
+    - 3040 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 401a40
+    - 0 insns executed in...
+      o MISS    0 cycles:   42 times ##################
+      o HIT     0 cycles:  763 times #################################
+    - 42 in 0 cycles => AVG of 0 cycles per miss 
+    - 763 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 403a68
+    - 0 insns executed in...
+      o MISS    0 cycles:  100 times #######################
+      o HIT     0 cycles:  680 times ################################
+    - 100 in 0 cycles => AVG of 0 cycles per miss 
+    - 680 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 400790
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+      o HIT     0 cycles:  721 times ################################
+    - 20 in 0 cycles => AVG of 0 cycles per miss 
+    - 721 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4039d8
+    - 0 insns executed in...
+      o MISS    0 cycles:   41 times ##################
+      o HIT     0 cycles:  619 times ################################
+    - 41 in 0 cycles => AVG of 0 cycles per miss 
+    - 619 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4076d0
+    - 0 insns executed in...
+      o MISS    0 cycles:   40 times ##################
+      o HIT     0 cycles:  604 times ################################
+    - 40 in 0 cycles => AVG of 0 cycles per miss 
+    - 604 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 402c88
+    - 0 insns executed in...
+      o MISS    0 cycles:   42 times ##################
+      o HIT     0 cycles:  400 times #############################
+    - 42 in 0 cycles => AVG of 0 cycles per miss 
+    - 400 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 400688
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+      o HIT     0 cycles:  380 times #############################
+    - 20 in 0 cycles => AVG of 0 cycles per miss 
+    - 380 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4006f0
+    - 0 insns executed in...
+      o MISS    0 cycles:   40 times ##################
+      o HIT     0 cycles:  360 times #############################
+    - 40 in 0 cycles => AVG of 0 cycles per miss 
+    - 360 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 400b00
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:  399 times #############################
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 399 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 403038
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:  399 times #############################
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 399 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 408ae0
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+      o HIT     0 cycles:  398 times #############################
+    - 2 in 0 cycles => AVG of 0 cycles per miss 
+    - 398 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 408b08
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+      o HIT     0 cycles:  398 times #############################
+    - 2 in 0 cycles => AVG of 0 cycles per miss 
+    - 398 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 408b80
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+      o HIT     0 cycles:  398 times #############################
+    - 2 in 0 cycles => AVG of 0 cycles per miss 
+    - 398 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4098b0
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+      o HIT     0 cycles:  398 times #############################
+    - 2 in 0 cycles => AVG of 0 cycles per miss 
+    - 398 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 40aaa8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:  399 times #############################
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 399 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 407980
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:  398 times #############################
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 398 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 409190
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:  398 times #############################
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 398 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 40aea0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:  398 times #############################
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 398 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 411330
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:  398 times #############################
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 398 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 407f90
+    - 0 insns executed in...
+      o MISS    0 cycles:    5 times ########
+      o HIT     0 cycles:  383 times #############################
+    - 5 in 0 cycles => AVG of 0 cycles per miss 
+    - 383 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4004e8
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+      o HIT     0 cycles:  360 times #############################
+    - 20 in 0 cycles => AVG of 0 cycles per miss 
+    - 360 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 400800
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+      o HIT     0 cycles:  360 times #############################
+    - 20 in 0 cycles => AVG of 0 cycles per miss 
+    - 360 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 400ae0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:  379 times #############################
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 379 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4023e0
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+      o HIT     0 cycles:  360 times #############################
+    - 20 in 0 cycles => AVG of 0 cycles per miss 
+    - 360 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4007b0
+    - 0 insns executed in...
+      o MISS    0 cycles:   21 times ###############
+      o HIT     0 cycles:  343 times #############################
+    - 21 in 0 cycles => AVG of 0 cycles per miss 
+    - 343 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 402ac8
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+      o HIT     0 cycles:  340 times #############################
+    - 20 in 0 cycles => AVG of 0 cycles per miss 
+    - 340 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 401a80
+    - 0 insns executed in...
+      o MISS    0 cycles:   19 times ##############
+      o HIT     0 cycles:  323 times ############################
+    - 19 in 0 cycles => AVG of 0 cycles per miss 
+    - 323 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 401bc8
+    - 0 insns executed in...
+      o MISS    0 cycles:   18 times ##############
+      o HIT     0 cycles:  306 times ############################
+    - 18 in 0 cycles => AVG of 0 cycles per miss 
+    - 306 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 40b070
+    - 0 insns executed in...
+      o MISS    0 cycles:   61 times ####################
+      o HIT     0 cycles:  121 times #######################
+    - 61 in 0 cycles => AVG of 0 cycles per miss 
+    - 121 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 40b010
+    - 0 insns executed in...
+      o MISS    0 cycles:   40 times ##################
+      o HIT     0 cycles:  121 times #######################
+    - 40 in 0 cycles => AVG of 0 cycles per miss 
+    - 121 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 403910
+    - 0 insns executed in...
+      o MISS    0 cycles:  100 times #######################
+      o HIT     0 cycles:   20 times ##############
+    - 100 in 0 cycles => AVG of 0 cycles per miss 
+    - 20 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4011b0
+    - 0 insns executed in...
+      o MISS    0 cycles:   81 times #####################
+      o HIT     0 cycles:   19 times ##############
+    - 81 in 0 cycles => AVG of 0 cycles per miss 
+    - 19 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 403770
+    - 0 insns executed in...
+      o MISS    0 cycles:   81 times #####################
+      o HIT     0 cycles:   19 times ##############
+    - 81 in 0 cycles => AVG of 0 cycles per miss 
+    - 19 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 40b0e0
+    - 0 insns executed in...
+      o MISS    0 cycles:   41 times ##################
+      o HIT     0 cycles:   40 times ##################
+    - 41 in 0 cycles => AVG of 0 cycles per miss 
+    - 40 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 403790
+    - 0 insns executed in...
+      o MISS    0 cycles:   61 times ####################
+      o HIT     0 cycles:   19 times ##############
+    - 61 in 0 cycles => AVG of 0 cycles per miss 
+    - 19 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 404cd8
+    - 0 insns executed in...
+      o MISS    0 cycles:   60 times ####################
+      o HIT     0 cycles:   20 times ##############
+    - 60 in 0 cycles => AVG of 0 cycles per miss 
+    - 20 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 404550
+    - 0 insns executed in...
+      o MISS    0 cycles:   58 times ####################
+      o HIT     0 cycles:   20 times ##############
+    - 58 in 0 cycles => AVG of 0 cycles per miss 
+    - 20 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4045a0
+    - 0 insns executed in...
+      o MISS    0 cycles:   58 times ####################
+      o HIT     0 cycles:   20 times ##############
+    - 58 in 0 cycles => AVG of 0 cycles per miss 
+    - 20 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 417a68
+    - 0 insns executed in...
+      o MISS    0 cycles:   57 times ####################
+      o HIT     0 cycles:   20 times ##############
+    - 57 in 0 cycles => AVG of 0 cycles per miss 
+    - 20 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 417b00
+    - 0 insns executed in...
+      o MISS    0 cycles:   57 times ####################
+      o HIT     0 cycles:   20 times ##############
+    - 57 in 0 cycles => AVG of 0 cycles per miss 
+    - 20 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4180c8
+    - 0 insns executed in...
+      o MISS    0 cycles:   57 times ####################
+      o HIT     0 cycles:   20 times ##############
+    - 57 in 0 cycles => AVG of 0 cycles per miss 
+    - 20 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 418148
+    - 0 insns executed in...
+      o MISS    0 cycles:   57 times ####################
+      o HIT     0 cycles:   20 times ##############
+    - 57 in 0 cycles => AVG of 0 cycles per miss 
+    - 20 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 418170
+    - 0 insns executed in...
+      o MISS    0 cycles:   57 times ####################
+      o HIT     0 cycles:   20 times ##############
+    - 57 in 0 cycles => AVG of 0 cycles per miss 
+    - 20 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 417ad8
+    - 0 insns executed in...
+      o MISS    0 cycles:   56 times ####################
+      o HIT     0 cycles:   19 times ##############
+    - 56 in 0 cycles => AVG of 0 cycles per miss 
+    - 19 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 406758
+    - 0 insns executed in...
+      o MISS    0 cycles:   63 times ####################
+
+  * Layer starting at 4077f0
+    - 0 insns executed in...
+      o MISS    0 cycles:   63 times ####################
+
+  * Layer starting at 403948
+    - 0 insns executed in...
+      o MISS    0 cycles:   41 times ##################
+      o HIT     0 cycles:   19 times ##############
+    - 41 in 0 cycles => AVG of 0 cycles per miss 
+    - 19 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 403958
+    - 0 insns executed in...
+      o MISS    0 cycles:   60 times ####################
+
+  * Layer starting at 403aa0
+    - 0 insns executed in...
+      o MISS    0 cycles:   60 times ####################
+
+  * Layer starting at 404128
+    - 0 insns executed in...
+      o MISS    0 cycles:   60 times ####################
+
+  * Layer starting at 406b68
+    - 0 insns executed in...
+      o MISS    0 cycles:   60 times ####################
+
+  * Layer starting at 406c98
+    - 0 insns executed in...
+      o MISS    0 cycles:   60 times ####################
+
+  * Layer starting at 407570
+    - 0 insns executed in...
+      o MISS    0 cycles:   41 times ##################
+      o HIT     0 cycles:   19 times ##############
+    - 41 in 0 cycles => AVG of 0 cycles per miss 
+    - 19 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4083a0
+    - 0 insns executed in...
+      o MISS    0 cycles:   60 times ####################
+
+  * Layer starting at 408418
+    - 0 insns executed in...
+      o MISS    0 cycles:   60 times ####################
+
+  * Layer starting at 40b168
+    - 0 insns executed in...
+      o MISS    0 cycles:   60 times ####################
+
+  * Layer starting at 4040c8
+    - 0 insns executed in...
+      o MISS    0 cycles:   59 times ####################
+
+  * Layer starting at 407658
+    - 0 insns executed in...
+      o MISS    0 cycles:   59 times ####################
+
+  * Layer starting at 406478
+    - 0 insns executed in...
+      o MISS    0 cycles:   58 times ####################
+
+  * Layer starting at 4176b0
+    - 0 insns executed in...
+      o MISS    0 cycles:   56 times ####################
+
+  * Layer starting at 401db0
+    - 0 insns executed in...
+      o MISS    0 cycles:   43 times ##################
+
+  * Layer starting at 407788
+    - 0 insns executed in...
+      o MISS    0 cycles:   43 times ##################
+
+  * Layer starting at 40b180
+    - 0 insns executed in...
+      o MISS    0 cycles:   23 times ###############
+      o HIT     0 cycles:   19 times ##############
+    - 23 in 0 cycles => AVG of 0 cycles per miss 
+    - 19 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 401be0
+    - 0 insns executed in...
+      o MISS    0 cycles:   41 times ##################
+
+  * Layer starting at 401c98
+    - 0 insns executed in...
+      o MISS    0 cycles:   41 times ##################
+
+  * Layer starting at 4023f0
+    - 0 insns executed in...
+      o MISS    0 cycles:   41 times ##################
+
+  * Layer starting at 4036a8
+    - 0 insns executed in...
+      o MISS    0 cycles:   41 times ##################
+
+  * Layer starting at 401390
+    - 0 insns executed in...
+      o MISS    0 cycles:   40 times ##################
+
+  * Layer starting at 4022c8
+    - 0 insns executed in...
+      o MISS    0 cycles:   40 times ##################
+
+  * Layer starting at 4023a8
+    - 0 insns executed in...
+      o MISS    0 cycles:   40 times ##################
+
+  * Layer starting at 402ac0
+    - 0 insns executed in...
+      o MISS    0 cycles:   40 times ##################
+
+  * Layer starting at 403928
+    - 0 insns executed in...
+      o MISS    0 cycles:   40 times ##################
+
+  * Layer starting at 405a80
+    - 0 insns executed in...
+      o MISS    0 cycles:   21 times ###############
+      o HIT     0 cycles:   19 times ##############
+    - 21 in 0 cycles => AVG of 0 cycles per miss 
+    - 19 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 40b040
+    - 0 insns executed in...
+      o MISS    0 cycles:   21 times ###############
+      o HIT     0 cycles:   19 times ##############
+    - 21 in 0 cycles => AVG of 0 cycles per miss 
+    - 19 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 401bd0
+    - 0 insns executed in...
+      o MISS    0 cycles:   39 times ##################
+
+  * Layer starting at 4025c0
+    - 0 insns executed in...
+      o MISS    0 cycles:   39 times ##################
+
+  * Layer starting at 402980
+    - 0 insns executed in...
+      o MISS    0 cycles:   39 times ##################
+
+  * Layer starting at 402be0
+    - 0 insns executed in...
+      o MISS    0 cycles:   39 times ##################
+
+  * Layer starting at 407458
+    - 0 insns executed in...
+      o MISS    0 cycles:   39 times ##################
+
+  * Layer starting at 40b020
+    - 0 insns executed in...
+      o MISS    0 cycles:   39 times ##################
+
+  * Layer starting at 40b118
+    - 0 insns executed in...
+      o MISS    0 cycles:   38 times ##################
+
+  * Layer starting at 404b68
+    - 0 insns executed in...
+      o MISS    0 cycles:   37 times ##################
+
+  * Layer starting at 407690
+    - 0 insns executed in...
+      o MISS    0 cycles:   37 times ##################
+
+  * Layer starting at 402248
+    - 0 insns executed in...
+      o MISS    0 cycles:   36 times #################
+
+  * Layer starting at 401c90
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:   29 times ################
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 29 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4044f8
+    - 0 insns executed in...
+      o MISS    0 cycles:   21 times ###############
+      o HIT     0 cycles:    1 times 
+    - 21 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 40b178
+    - 0 insns executed in...
+      o MISS    0 cycles:   22 times ###############
+
+  * Layer starting at 4036a0
+    - 0 insns executed in...
+      o MISS    0 cycles:   21 times ###############
+
+  * Layer starting at 405a68
+    - 0 insns executed in...
+      o MISS    0 cycles:   21 times ###############
+
+  * Layer starting at 4076f8
+    - 0 insns executed in...
+      o MISS    0 cycles:   21 times ###############
+
+  * Layer starting at 400258
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 400268
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 4005b8
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 4008e8
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 400920
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 400938
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 400978
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 400990
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 4009a0
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 4009b0
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 400bf0
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 4028c0
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+      o HIT     0 cycles:   18 times ##############
+    - 2 in 0 cycles => AVG of 0 cycles per miss 
+    - 18 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4045e0
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 404c50
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 404d20
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 4076e0
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 407780
+    - 0 insns executed in...
+      o MISS    0 cycles:   20 times ##############
+
+  * Layer starting at 400848
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:   18 times ##############
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 18 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 400870
+    - 0 insns executed in...
+      o MISS    0 cycles:   19 times ##############
+
+  * Layer starting at 4008c0
+    - 0 insns executed in...
+      o MISS    0 cycles:   19 times ##############
+
+  * Layer starting at 400ad0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:   18 times ##############
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 18 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 400b70
+    - 0 insns executed in...
+      o MISS    0 cycles:   19 times ##############
+
+  * Layer starting at 402380
+    - 0 insns executed in...
+      o MISS    0 cycles:   19 times ##############
+
+  * Layer starting at 4035f8
+    - 0 insns executed in...
+      o MISS    0 cycles:   19 times ##############
+
+  * Layer starting at 403668
+    - 0 insns executed in...
+      o MISS    0 cycles:   19 times ##############
+
+  * Layer starting at 404c60
+    - 0 insns executed in...
+      o MISS    0 cycles:   19 times ##############
+
+  * Layer starting at 407650
+    - 0 insns executed in...
+      o MISS    0 cycles:    3 times #####
+      o HIT     0 cycles:   16 times #############
+    - 3 in 0 cycles => AVG of 0 cycles per miss 
+    - 16 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 40ae70
+    - 0 insns executed in...
+      o MISS    0 cycles:   19 times ##############
+
+  * Layer starting at 40aff0
+    - 0 insns executed in...
+      o MISS    0 cycles:   19 times ##############
+
+  * Layer starting at 400888
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:   17 times ##############
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 17 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 401ae0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:   17 times ##############
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 17 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 407568
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:   16 times #############
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 16 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 407688
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:   16 times #############
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 16 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4076c8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:   16 times #############
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 16 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 407730
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:   16 times #############
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 16 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 407850
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:   16 times #############
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 16 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 401a30
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:   15 times #############
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 15 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 401b90
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:   15 times #############
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 15 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 408008
+    - 0 insns executed in...
+      o MISS    0 cycles:    4 times ######
+      o HIT     0 cycles:   12 times ############
+    - 4 in 0 cycles => AVG of 0 cycles per miss 
+    - 12 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 407ea0
+    - 0 insns executed in...
+      o MISS    0 cycles:    5 times ########
+      o HIT     0 cycles:    1 times 
+    - 5 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 407eb8
+    - 0 insns executed in...
+      o MISS    0 cycles:    5 times ########
+      o HIT     0 cycles:    1 times 
+    - 5 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 40f408
+    - 0 insns executed in...
+      o MISS    0 cycles:    5 times ########
+      o HIT     0 cycles:    1 times 
+    - 5 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 407e70
+    - 0 insns executed in...
+      o MISS    0 cycles:    4 times ######
+      o HIT     0 cycles:    1 times 
+    - 4 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4015a8
+    - 0 insns executed in...
+      o MISS    0 cycles:    4 times ######
+
+  * Layer starting at 401a20
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+      o HIT     0 cycles:    2 times ###
+    - 2 in 0 cycles => AVG of 0 cycles per miss 
+    - 2 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 401f70
+    - 0 insns executed in...
+      o MISS    0 cycles:    4 times ######
+
+  * Layer starting at 4033c8
+    - 0 insns executed in...
+      o MISS    0 cycles:    3 times #####
+      o HIT     0 cycles:    1 times 
+    - 3 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4034c0
+    - 0 insns executed in...
+      o MISS    0 cycles:    3 times #####
+      o HIT     0 cycles:    1 times 
+    - 3 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 403548
+    - 0 insns executed in...
+      o MISS    0 cycles:    3 times #####
+      o HIT     0 cycles:    1 times 
+    - 3 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 406a90
+    - 0 insns executed in...
+      o MISS    0 cycles:    4 times ######
+
+  * Layer starting at 402068
+    - 0 insns executed in...
+      o MISS    0 cycles:    3 times #####
+
+  * Layer starting at 403388
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+      o HIT     0 cycles:    1 times 
+    - 2 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4033e8
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+      o HIT     0 cycles:    1 times 
+    - 2 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4034e0
+    - 0 insns executed in...
+      o MISS    0 cycles:    3 times #####
+
+  * Layer starting at 406ae0
+    - 0 insns executed in...
+      o MISS    0 cycles:    3 times #####
+
+  * Layer starting at 408038
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:    2 times ###
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 2 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 408510
+    - 0 insns executed in...
+      o MISS    0 cycles:    3 times #####
+
+  * Layer starting at 408528
+    - 0 insns executed in...
+      o MISS    0 cycles:    3 times #####
+
+  * Layer starting at 417ad0
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+      o HIT     0 cycles:    1 times 
+    - 2 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4019f8
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 401aa0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:    1 times 
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 401f60
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 4022d0
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 4022d8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:    1 times 
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 403468
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 403480
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 403560
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:    1 times 
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4036e0
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 4044f0
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 404668
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 4046b8
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 404c70
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 406700
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 406728
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 406b00
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 406b38
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 406ba0
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 407550
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 4077c0
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 408058
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 408278
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:    1 times 
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 40acd0
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 40f2f0
+    - 0 insns executed in...
+      o MISS    0 cycles:    2 times ###
+
+  * Layer starting at 40f3f0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:    1 times 
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 4139c0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+      o HIT     0 cycles:    1 times 
+    - 1 in 0 cycles => AVG of 0 cycles per miss 
+    - 1 in 0 cycles => AVG of 0 cycles per hit 
+    - AVG of 0 more cylces per miss
+
+  * Layer starting at 400148
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4001b0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 400240
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 400568
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 400600
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4008b8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 400a48
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 400a98
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 400ac8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 400b80
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 400c60
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 400cc0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 400eb0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 400f08
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 400f20
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 400f68
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401080
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401090
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401140
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4012f0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401320
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401378
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401410
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401450
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401468
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4014b0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4015e8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401600
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401620
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401648
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4018f0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401918
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4019d8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4019f0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401a10
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401cd0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401e10
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401e80
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 401fa0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402198
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4023d0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402420
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402470
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4024b8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4024f0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402500
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402568
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4025b0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402630
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402690
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402740
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4028b0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4029e8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402c48
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402c80
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402cf8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402d80
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402e30
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402f30
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402f40
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402f50
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 402f80
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403078
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403168
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403200
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4032a8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4033a8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403418
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403450
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403490
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4034f0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403530
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403640
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4036d0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403750
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4038d0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4039c8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403a48
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403b58
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403ce0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403d68
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403e00
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 403f50
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4040c0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 404180
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4041d0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 404288
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 404448
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4044e0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 404660
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4046f0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 404728
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4048a0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 404938
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4049d0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 404b40
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 404c30
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 404cb8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 405ae0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406528
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406610
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406648
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406670
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406690
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4066c0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4066f0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4067f0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4069e8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406ab0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406ae8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406c58
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406cd8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406d18
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406e30
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406e88
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406ee0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406f70
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406f98
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 406fe0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407148
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407168
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4071a0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4071d0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4071f8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407240
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407288
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407378
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4073f8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407450
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4074a8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4074c0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407578
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4075b0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4075d8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407618
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407660
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4076c0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407700
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407738
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4077a0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4077d8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407830
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407860
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407910
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407968
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4079c0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407a60
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407ac0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407ae8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407b28
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407b60
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407c78
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407cd0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407d58
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407d98
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407de8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407f18
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 407f78
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408028
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408030
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408298
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4082d0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4082f0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408318
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408370
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408388
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408438
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408498
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4084c8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4085a0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4085c8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4085e0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4085f8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408628
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408630
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408a68
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408ac8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408b70
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408d20
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408ef8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408f28
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 408ff8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 409188
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4099b0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 409b58
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 409b68
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 409bb0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 409ca8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 409cf8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 40ab58
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 40ab70
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 40ab90
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 40ace8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 40ad08
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 40ae48
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 40aee8
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 40af58
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 40f338
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 40f348
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 40f358
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 40f380
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 40f390
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4112d0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 411328
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4113a0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 413918
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 413970
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 417748
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 417a50
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 417af0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 417b68
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 418020
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4180b0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 418140
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 418160
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+
+  * Layer starting at 4181e0
+    - 0 insns executed in...
+      o MISS    0 cycles:    1 times 
+

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<parameters>
+    <parameter name="n_lines" value="8"/>
+    <parameter name="n_columns" value="16"/>
+    <parameter name="n_layers" value="32"/>
+    <parameter name="c_chunk" value="8"/> <!-- default: 8 (1/32) -->
+    <parameter name="c_sets" value="1"/> <!-- default: 128 (32/8192) -->
+    <parameter name="c_lines" value="1"/> <!-- default 1 (1/128) -->
+</parameters>

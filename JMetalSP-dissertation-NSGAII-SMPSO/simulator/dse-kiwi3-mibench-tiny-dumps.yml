@@ -1,0 +1,444 @@
+# To calclulate max runtime of benchmark: executed_instructions_ref * 0,002 sec ~ (500 insns/sec) */
+
+--- 
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-auto-bitcount
+  dumpdir: .\automotive\bitcount\mdump\
+  streamfile: .\automotive\bitcount\bitcount.str
+  executed_instructions_ref: 1240151
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-auto-qsort
+  dumpdir: .\automotive\qsort\mdump\
+  streamfile: .\automotive\qsort\qsort.str
+  input: .\automotive\qsort\input_small.dat
+  executed_instructions_ref: 1835416
+  output_files_reference:
+    - .\automotive\qsort\qsort_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-auto-susan-smoothing
+  dumpdir: .\automotive\susan_smoothing\mdump\
+  streamfile: .\automotive\susan_smoothing\susan.str
+  input: .\automotive\susan_smoothing\input_small.pgm
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-auto-susan-edges
+  dumpdir: .\automotive\susan_edges\mdump\
+  streamfile: .\automotive\susan_edges\susan.str
+  input: .\automotive\susan_edges\input_small.pgm
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-auto-susan-corners
+  dumpdir: .\automotive\susan_corners\mdump\
+  streamfile: .\automotive\susan_corners\susan.str
+  input: .\automotive\susan_corners\input_small.pgm
+  
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-cons-jpeg-encode
+  dumpdir: .\consumer\jpeg_encode\mdump\
+  streamfile: .\consumer\jpeg_encode\cjpeg.str
+  input: .\consumer\jpeg_encode\input_small.ppm
+  executed_instructions_ref: 1204513
+  output_files_reference:
+    - .\consumer\jpeg_encode\cjpeg_bpred-auto_prog.log
+    - .\consumer\jpeg_encode\output_small_encode.jpeg
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+    - RESULT\..\output_small_encode.jpeg
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-cons-jpeg-decode
+  dumpdir: .\consumer\jpeg_decode\mdump\
+  streamfile: .\consumer\jpeg_decode\djpeg.str
+  input: .\consumer\jpeg_decode\input_small.jpg
+  executed_instructions_ref: 1754865
+  output_files_reference:
+    - .\consumer\jpeg_decode\output_small_decode.ppm
+  output_files_generated:
+    - RESULT\..\output_small_decode.ppm
+
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-netw-patricia
+  dumpdir: .\network\patricia\mdump\
+  streamfile: .\network\patricia\patricia.str
+  input: .\network\patricia\small.udp
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-netw-dijkstra
+  dumpdir: .\network\dijkstra\mdump\
+  streamfile: .\network\dijkstra\dijkstra.str
+  input: .\network\dijkstra\input.dat
+  executed_instructions_ref: 1576083
+  output_files_reference:
+    - .\network\dijkstra\dijkstra_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-tele-adpcm-file-encode
+  dumpdir: .\telecomm\adpcm-file-encode\bin\mdump\
+  streamfile: .\telecomm\adpcm-file-encode\bin\rawcaudio.str
+  input: .\telecomm\adpcm-file-encode\bin\small.pcm
+  executed_instructions_ref: 1899244
+  output_files_reference:
+    - .\telecomm\adpcm-file-encode\bin\rawcaudio_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-tele-adpcm-file-decode
+  dumpdir: .\telecomm\adpcm-file-decode\bin\mdump\
+  streamfile: .\telecomm\adpcm-file-decode\bin\rawdaudio.str
+  input: .\telecomm\adpcm-file-decode\bin\small.adpcm
+  executed_instructions_ref: 1550320
+  output_files_reference:
+    - .\telecomm\adpcm-file-decode\bin\rawdaudio_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-tele-crc32
+  dumpdir: .\telecomm\CRC32\mdump\
+  streamfile: .\telecomm\CRC32\crc.str
+  input: .\telecomm\CRC32\tiny.png
+  executed_instructions_ref: 2175951
+
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-tele-gsm-encode
+  dumpdir: .\telecomm\gsm-encode\bin\mdump\
+  streamfile: .\telecomm\gsm-encode\bin\toast.str
+  input: .\telecomm\gsm-encode\bin\tiny.au
+  executed_instructions_ref: 3766238
+  output_files_reference:
+    - .\telecomm\gsm-encode\bin\toast_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-tele-gsm-encode-nounroll
+  dumpdir: .\telecomm\gsm-encode-nounroll\bin\mdump\
+  streamfile: .\telecomm\gsm-encode-nounroll\bin\toast.str
+  input: .\telecomm\gsm-encode-nounroll\bin\tiny.au
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-tele-gsm-decode
+  dumpdir: .\telecomm\gsm-decode\bin\mdump\
+  streamfile: .\telecomm\gsm-decode\bin\untoast.str
+  input: .\telecomm\gsm-decode\bin\tiny.gsm
+  executed_instructions_ref: 1636123
+  output_files_reference:
+    - .\telecomm\gsm-decode\bin\untoast_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-secu-rijndael-encode
+  dumpdir: .\security\rijndael-encode\mdump\
+  streamfile: .\security\rijndael-encode\rijndael.str
+  input: .\security\rijndael-encode\input_tiny.asc
+  executed_instructions_ref: 2367769
+
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-secu-rijndael-encode-nounroll
+  dumpdir: .\security\rijndael-encode-nounroll\mdump\
+  streamfile: .\security\rijndael-encode-nounroll\rijndael.str
+  input: .\security\rijndael-encode-nounroll\input_tiny.asc
+  executed_instructions_ref: 2588089
+  output_files_reference:
+    - .\security\rijndael-encode-nounroll\rijndael_bpred-auto_prog.log
+    - .\security\rijndael-encode-nounroll\output_tiny.enc
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+    - RESULT\..\output_tiny.enc
+  
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-secu-rijndael-decode
+  dumpdir: .\security\rijndael-decode\mdump\
+  streamfile: .\security\rijndael-decode\rijndael.str
+  input: .\security\rijndael-decode\output_tiny.enc
+  executed_instructions_ref: 2364498
+
+  
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-secu-rijndael-decode-nounroll
+  dumpdir: .\security\rijndael-decode-nounroll\mdump\
+  streamfile: .\security\rijndael-decode-nounroll\rijndael.str
+  input: .\security\rijndael-decode-nounroll\output_tiny.enc
+  executed_instructions_ref: 2584818
+  output_files_reference:
+    - .\security\rijndael-decode-nounroll\rijndael_bpred-auto_prog.log
+    - .\security\rijndael-decode-nounroll\output_tiny.dec
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+    - RESULT\..\output_tiny.dec
+
+  
+
+  - !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-secu-sha
+  dumpdir: .\security\sha\mdump\
+  streamfile: .\security\sha\sha.str
+  input: .\security\sha\input_tiny.asc
+  executed_instructions_ref: 3554973
+
+  
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-offi-stringsearch
+  dumpdir: .\office\stringsearch\mdump\
+  streamfile: .\office\stringsearch\search_small.str
+  executed_instructions_ref: 300072
+  output_files_reference:
+    - .\office\stringsearch\search_small_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+  
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: default-mibench-offi-stringsearch-quiet
+  dumpdir: .\office\stringsearch_quiet\mdump\
+  streamfile: .\office\stringsearch_quiet\search_small.str
+  executed_instructions_ref: 96748
+  output_files_reference:
+    - .\office\stringsearch_quiet\search_small_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+	
+	
+# --- noinline-mibench-tele-adpcm-file-decode, O0=1569445
+#--- noinline-mibench-tele-gsm-decode, O0=1493548
+#--- noinline-mibench-secu-rijndael-encode-nounroll, O0=2588131
+#--- noinline-mibench-secu-rijndael-decode-nounroll, O0=2584841
+#--- noinline-mibench-cons-jpeg-encode, O0=1227192
+#--- noinline-mibench-auto-qsort, O0=1835942
+#--- noinline-mibench-offi-stringsearch, O0=302219
+#--- noinline-mibench-cons-jpeg-decode, O0=1769800
+#--- noinline-mibench-netw-dijkstra, O0=1615878
+#--- noinline-mibench-tele-gsm-encode, O0=3928370
+
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-auto-bitcount
+  dumpdir: .\automotive\bitcount\mdump\
+  streamfile: .\automotive\bitcount\bitcount.str
+  executed_instructions_ref: 99999999
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-auto-qsort
+  dumpdir: .\automotive\qsort\mdump\
+  streamfile: .\automotive\qsort\qsort.str
+  input: .\automotive\qsort\input_small.dat
+  executed_instructions_ref: 1835942
+  output_files_reference:
+    - .\automotive\qsort\qsort_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-auto-susan-smoothing
+  dumpdir: .\automotive\susan_smoothing\mdump\
+  streamfile: .\automotive\susan_smoothing\susan.str
+  input: .\automotive\susan_smoothing\input_small.pgm
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-auto-susan-edges
+  dumpdir: .\automotive\susan_edges\mdump\
+  streamfile: .\automotive\susan_edges\susan.str
+  input: .\automotive\susan_edges\input_small.pgm
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-auto-susan-corners
+  dumpdir: .\automotive\susan_corners\mdump\
+  streamfile: .\automotive\susan_corners\susan.str
+  input: .\automotive\susan_corners\input_small.pgm
+  
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-cons-jpeg-encode
+  dumpdir: .\consumer\jpeg_encode\mdump\
+  streamfile: .\consumer\jpeg_encode\cjpeg.str
+  input: .\consumer\jpeg_encode\input_small.ppm
+  executed_instructions_ref: 1227192
+  output_files_reference:
+    - .\consumer\jpeg_encode\cjpeg_bpred-auto_prog.log
+    - .\consumer\jpeg_encode\output_small_encode.jpeg
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+    - RESULT\..\output_small_encode.jpeg
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-cons-jpeg-decode
+  dumpdir: .\consumer\jpeg_decode\mdump\
+  streamfile: .\consumer\jpeg_decode\djpeg.str
+  input: .\consumer\jpeg_decode\input_small.jpg
+  executed_instructions_ref: 1769800
+  output_files_reference:
+    - .\consumer\jpeg_decode\output_small_decode.ppm
+  output_files_generated:
+    - RESULT\..\output_small_decode.ppm
+
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-netw-patricia
+  dumpdir: .\network\patricia\mdump\
+  streamfile: .\network\patricia\patricia.str
+  input: .\network\patricia\small.udp
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-netw-dijkstra
+  dumpdir: .\network\dijkstra\mdump\
+  streamfile: .\network\dijkstra\dijkstra.str
+  input: .\network\dijkstra\input.dat
+  executed_instructions_ref: 1615878
+  output_files_reference:
+    - .\network\dijkstra\dijkstra_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-tele-adpcm-file-encode
+  dumpdir: .\telecomm\adpcm-file-encode\bin\mdump\
+  streamfile: .\telecomm\adpcm-file-encode\bin\rawcaudio.str
+  input: .\telecomm\adpcm-file-encode\bin\small.pcm
+  executed_instructions_ref: 99999999
+  output_files_reference:
+    - .\telecomm\adpcm-file-encode\bin\rawcaudio_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-tele-adpcm-file-decode
+  dumpdir: .\telecomm\adpcm-file-decode\bin\mdump\
+  streamfile: .\telecomm\adpcm-file-decode\bin\rawdaudio.str
+  input: .\telecomm\adpcm-file-decode\bin\small.adpcm
+  executed_instructions_ref: 1569445
+  output_files_reference:
+    - .\telecomm\adpcm-file-decode\bin\rawdaudio_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-tele-crc32
+  dumpdir: .\telecomm\CRC32\mdump\
+  streamfile: .\telecomm\CRC32\crc.str
+  input: .\telecomm\CRC32\tiny.png
+  executed_instructions_ref: 99999999
+
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-tele-gsm-encode
+  dumpdir: .\telecomm\gsm-encode\bin\mdump\
+  streamfile: .\telecomm\gsm-encode\bin\toast.str
+  input: .\telecomm\gsm-encode\bin\tiny.au
+  executed_instructions_ref: 3928370
+  output_files_reference:
+    - .\telecomm\gsm-encode\bin\toast_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-tele-gsm-encode-nounroll
+  dumpdir: .\telecomm\gsm-encode-nounroll\bin\mdump\
+  streamfile: .\telecomm\gsm-encode-nounroll\bin\toast.str
+  input: .\telecomm\gsm-encode-nounroll\bin\tiny.au
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-tele-gsm-decode
+  dumpdir: .\telecomm\gsm-decode\bin\mdump\
+  streamfile: .\telecomm\gsm-decode\bin\untoast.str
+  input: .\telecomm\gsm-decode\bin\tiny.gsm
+  executed_instructions_ref: 1493548
+  output_files_reference:
+    - .\telecomm\gsm-decode\bin\untoast_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-secu-rijndael-encode
+  dumpdir: .\security\rijndael-encode\mdump\
+  streamfile: .\security\rijndael-encode\rijndael.str
+  input: .\security\rijndael-encode\input_tiny.asc
+  executed_instructions_ref: 99999999
+
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-secu-rijndael-encode-nounroll
+  dumpdir: .\security\rijndael-encode-nounroll\mdump\
+  streamfile: .\security\rijndael-encode-nounroll\rijndael.str
+  input: .\security\rijndael-encode-nounroll\input_tiny.asc
+  executed_instructions_ref: 2588131
+  output_files_reference:
+    - .\security\rijndael-encode-nounroll\rijndael_bpred-auto_prog.log
+    - .\security\rijndael-encode-nounroll\output_tiny.enc
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+    - RESULT\..\output_tiny.enc
+  
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-secu-rijndael-decode
+  dumpdir: .\security\rijndael-decode\mdump\
+  streamfile: .\security\rijndael-decode\rijndael.str
+  input: .\security\rijndael-decode\output_tiny.enc
+  executed_instructions_ref: 99999999
+
+  
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-secu-rijndael-decode-nounroll
+  dumpdir: .\security\rijndael-decode-nounroll\mdump\
+  streamfile: .\security\rijndael-decode-nounroll\rijndael.str
+  input: .\security\rijndael-decode-nounroll\output_tiny.enc
+  executed_instructions_ref: 2584841
+  output_files_reference:
+    - .\security\rijndael-decode-nounroll\rijndael_bpred-auto_prog.log
+    - .\security\rijndael-decode-nounroll\output_tiny.dec
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+    - RESULT\..\output_tiny.dec
+
+  
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-secu-sha
+  dumpdir: .\security\sha\mdump\
+  streamfile: .\security\sha\sha.str
+  input: .\security\sha\input_tiny.asc
+  executed_instructions_ref: 99999999
+
+  
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-offi-stringsearch
+  dumpdir: .\office\stringsearch\mdump\
+  streamfile: .\office\stringsearch\search_small.str
+  executed_instructions_ref: 302219
+  output_files_reference:
+    - .\office\stringsearch\search_small_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt
+  
+
+- !stepstepgui.benchmarks.Benchmark
+  basename: noinline-mibench-offi-stringsearch-quiet
+  dumpdir: .\office\stringsearch_quiet\mdump\
+  streamfile: .\office\stringsearch_quiet\search_small.str
+  executed_instructions_ref: 99999999
+  output_files_reference:
+    - .\office\stringsearch_quiet\search_small_bpred-auto_prog.log
+  output_files_generated:
+    - RESULT\AusgabeKonsole.txt

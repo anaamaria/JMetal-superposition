@@ -1,0 +1,326 @@
+Number of Lines                           : 32
+Number of Columns                         : 34
+Number of Layers                          : 1
+Memory Latency                            : 24
+Cache Configuration - Chunk size          : 8
+Cache Configuration - Sets                : 128
+Cache Configuration - Lines               : 1
+Cache Size in Byte                        : 8192
+Cache Size in KByte                       : 8
+Duration of Simulation                    : 34
+number of clock cycles                    : 1107210
+hitrate layers                            : 0.000000
+hitrate loops                             : 0.000000
+hitrate total                             : 0.000000
+layer-system layer hits                   : 0
+layer-system loop hits                    : 0
+layer-system hits                         : 0
+layer-system layer misses                 : 72533
+number of interface stall cycles          : 18252
+instruction per clock cycle IPC           : 0.578327
+Hitrate                                   : 97%
+instruction cache miss                    : 15969
+instruction cache hit                     : 565646
+miss_prediction                           : 0
+Reads from memory                         : 1131
+Writes to memory                          : 100871
+Fetches from instruction cashe            : 16542
+Number of ALU mapped instructions         : 1934422
+Number placed instructions                : 1533939
+Number of executed instructions in ALU    : 640329
+Number of taken branches in ALU           : 72532
+Number of branches that flush the ALU     : 72532
+Number of Loops inside the ALU            : 0
+Array Usability                           : 0.008164
+Configurations with Length  1             : 8916
+Configurations with Length  2             : 18478
+Configurations with Length  3             : 9513
+Configurations with Length  4             : 3630
+Configurations with Length  5             : 2451
+Configurations with Length  6             : 3033
+Configurations with Length  7             : 3467
+Configurations with Length  8             : 663
+Configurations with Length  9             : 10851
+Configurations with Length 10             : 131
+Configurations with Length 11             : 2225
+Configurations with Length 12             : 360
+Configurations with Length 13             : 545
+Configurations with Length 14             : 7359
+Configurations with Length 15             : 42
+Configurations with Length 16             : 40
+Configurations with Length 17             : 385
+Configurations with Length 18             : 363
+Configurations with Length 19             : 0
+Configurations with Length 20             : 0
+Configurations with Length 21             : 40
+Configurations with Length 22             : 0
+Configurations with Length 23             : 1
+Configurations with Length 24             : 0
+Configurations with Length 25             : 39
+Configurations with Length 26             : 0
+Configurations with Length 27             : 0
+Configurations with Length 28             : 0
+Configurations with Length 29             : 0
+Configurations with Length 30             : 0
+Configurations with Length 31             : 0
+Configurations with Length 32             : 1
+Configurations with AVG Length            : 5.556795
+Configurations with Length  1 in Loop     : 0
+Configurations with Length  2 in Loop     : 0
+Configurations with Length  3 in Loop     : 0
+Configurations with Length  4 in Loop     : 0
+Configurations with Length  5 in Loop     : 0
+Configurations with Length  6 in Loop     : 0
+Configurations with Length  7 in Loop     : 0
+Configurations with Length  8 in Loop     : 0
+Configurations with Length  9 in Loop     : 0
+Configurations with Length 10 in Loop     : 0
+Configurations with Length 11 in Loop     : 0
+Configurations with Length 12 in Loop     : 0
+Configurations with Length 13 in Loop     : 0
+Configurations with Length 14 in Loop     : 0
+Configurations with Length 15 in Loop     : 0
+Configurations with Length 16 in Loop     : 0
+Configurations with Length 17 in Loop     : 0
+Configurations with Length 18 in Loop     : 0
+Configurations with Length 19 in Loop     : 0
+Configurations with Length 20 in Loop     : 0
+Configurations with Length 21 in Loop     : 0
+Configurations with Length 22 in Loop     : 0
+Configurations with Length 23 in Loop     : 0
+Configurations with Length 24 in Loop     : 0
+Configurations with Length 25 in Loop     : 0
+Configurations with Length 26 in Loop     : 0
+Configurations with Length 27 in Loop     : 0
+Configurations with Length 28 in Loop     : 0
+Configurations with Length 29 in Loop     : 0
+Configurations with Length 30 in Loop     : 0
+Configurations with Length 31 in Loop     : 0
+Configurations with Length 32 in Loop     : 0
+Configurations with AVG Length in Loop    : -1.#IND00
+Lines with  0 used FUs                    : 0
+Lines with  1 used FUs                    : 103463
+Lines with  2 used FUs                    : 223025
+Lines with  3 used FUs                    : 69286
+Lines with  4 used FUs                    : 5649
+Lines with  5 used FUs                    : 1350
+Lines with  6 used FUs                    : 61
+Lines with  7 used FUs                    : 157
+Lines with  8 used FUs                    : 0
+Lines with  9 used FUs                    : 0
+Lines with 10 used FUs                    : 60
+Lines with 11 used FUs                    : 0
+Lines with 12 used FUs                    : 0
+Lines with 13 used FUs                    : 0
+Lines with 14 used FUs                    : 0
+Lines with 15 used FUs                    : 0
+Lines with 16 used FUs                    : 0
+Lines with 17 used FUs                    : 0
+Lines with 18 used FUs                    : 0
+Lines with 19 used FUs                    : 0
+Lines with 20 used FUs                    : 0
+Lines with 21 used FUs                    : 0
+Lines with 22 used FUs                    : 0
+Lines with 23 used FUs                    : 0
+Lines with 24 used FUs                    : 0
+Lines with 25 used FUs                    : 0
+Lines with 26 used FUs                    : 0
+Lines with 27 used FUs                    : 0
+Lines with 28 used FUs                    : 0
+Lines with 29 used FUs                    : 0
+Lines with 30 used FUs                    : 0
+Lines with 31 used FUs                    : 0
+Lines with 32 used FUs                    : 0
+Lines with 33 used FUs                    : 0
+Configurations with AVG used FUs          : 1.957028
+Lines with  0 used FUs in loop            : 0
+Lines with  1 used FUs in loop            : 0
+Lines with  2 used FUs in loop            : 0
+Lines with  3 used FUs in loop            : 0
+Lines with  4 used FUs in loop            : 0
+Lines with  5 used FUs in loop            : 0
+Lines with  6 used FUs in loop            : 0
+Lines with  7 used FUs in loop            : 0
+Lines with  8 used FUs in loop            : 0
+Lines with  9 used FUs in loop            : 0
+Lines with 10 used FUs in loop            : 0
+Lines with 11 used FUs in loop            : 0
+Lines with 12 used FUs in loop            : 0
+Lines with 13 used FUs in loop            : 0
+Lines with 14 used FUs in loop            : 0
+Lines with 15 used FUs in loop            : 0
+Lines with 16 used FUs in loop            : 0
+Lines with 17 used FUs in loop            : 0
+Lines with 18 used FUs in loop            : 0
+Lines with 19 used FUs in loop            : 0
+Lines with 20 used FUs in loop            : 0
+Lines with 21 used FUs in loop            : 0
+Lines with 22 used FUs in loop            : 0
+Lines with 23 used FUs in loop            : 0
+Lines with 24 used FUs in loop            : 0
+Lines with 25 used FUs in loop            : 0
+Lines with 26 used FUs in loop            : 0
+Lines with 27 used FUs in loop            : 0
+Lines with 28 used FUs in loop            : 0
+Lines with 29 used FUs in loop            : 0
+Lines with 30 used FUs in loop            : 0
+Lines with 31 used FUs in loop            : 0
+Lines with 32 used FUs in loop            : 0
+Lines with 33 used FUs in loop            : 0
+Configurations with AVG used FUs in loop  : -1.#IND00
+Configurations with  0 used LSs           : 5467
+Configurations with  1 used LSs           : 21410
+Configurations with  2 used LSs           : 13978
+Configurations with  3 used LSs           : 1933
+Configurations with  4 used LSs           : 3125
+Configurations with  5 used LSs           : 2054
+Configurations with  6 used LSs           : 19461
+Configurations with  7 used LSs           : 958
+Configurations with  8 used LSs           : 889
+Configurations with  9 used LSs           : 809
+Configurations with 10 used LSs           : 1283
+Configurations with 11 used LSs           : 541
+Configurations with 12 used LSs           : 181
+Configurations with 13 used LSs           : 400
+Configurations with 14 used LSs           : 0
+Configurations with 15 used LSs           : 4
+Configurations with 16 used LSs           : 0
+Configurations with 17 used LSs           : 0
+Configurations with 18 used LSs           : 1
+Configurations with 19 used LSs           : 0
+Configurations with 20 used LSs           : 0
+Configurations with 21 used LSs           : 0
+Configurations with 22 used LSs           : 0
+Configurations with 23 used LSs           : 0
+Configurations with 24 used LSs           : 39
+Configurations with 25 used LSs           : 0
+Configurations with 26 used LSs           : 0
+Configurations with 27 used LSs           : 0
+Configurations with 28 used LSs           : 0
+Configurations with 29 used LSs           : 0
+Configurations with 30 used LSs           : 0
+Configurations with 31 used LSs           : 0
+Configurations with 32 used LSs           : 0
+Configurations with AVG used LSs          : 3.349744
+Configurations with  0 branches           : 0
+Configurations with  1 branches           : 42560
+Configurations with  2 branches           : 18629
+Configurations with  3 branches           : 10496
+Configurations with  4 branches           : 646
+Configurations with  5 branches           : 141
+Configurations with  6 branches           : 60
+Configurations with  7 branches           : 0
+Configurations with  8 branches           : 0
+Configurations with  9 branches           : 1
+Configurations with 10 branches           : 0
+Configurations with 11 branches           : 0
+Configurations with 12 branches           : 0
+Configurations with 13 branches           : 0
+Configurations with 14 branches           : 0
+Configurations with 15 branches           : 0
+Configurations with 16 branches           : 0
+Configurations with 17 branches           : 0
+Configurations with 18 branches           : 0
+Configurations with 19 branches           : 0
+Configurations with 20 branches           : 0
+Configurations with 21 branches           : 0
+Configurations with 22 branches           : 0
+Configurations with 23 branches           : 0
+Configurations with 24 branches           : 0
+Configurations with 25 branches           : 0
+Configurations with 26 branches           : 0
+Configurations with 27 branches           : 0
+Configurations with 28 branches           : 0
+Configurations with 29 branches           : 0
+Configurations with 30 branches           : 0
+Configurations with 31 branches           : 0
+Configurations with 32 branches           : 0
+Configurations with AVG branches          : 1.584989
+Configurations with  0 used Cols          : 0
+Configurations with  1 used Cols          : 204
+Configurations with  2 used Cols          : 2853
+Configurations with  3 used Cols          : 14321
+Configurations with  4 used Cols          : 10248
+Configurations with  5 used Cols          : 25463
+Configurations with  6 used Cols          : 2631
+Configurations with  7 used Cols          : 2568
+Configurations with  8 used Cols          : 11494
+Configurations with  9 used Cols          : 1064
+Configurations with 10 used Cols          : 780
+Configurations with 11 used Cols          : 122
+Configurations with 12 used Cols          : 146
+Configurations with 13 used Cols          : 481
+Configurations with 14 used Cols          : 158
+Configurations with 15 used Cols          : 0
+Configurations with 16 used Cols          : 0
+Configurations with 17 used Cols          : 0
+Configurations with 18 used Cols          : 0
+Configurations with 19 used Cols          : 0
+Configurations with 20 used Cols          : 0
+Configurations with 21 used Cols          : 0
+Configurations with 22 used Cols          : 0
+Configurations with 23 used Cols          : 0
+Configurations with 24 used Cols          : 0
+Configurations with 25 used Cols          : 0
+Configurations with 26 used Cols          : 0
+Configurations with 27 used Cols          : 0
+Configurations with 28 used Cols          : 0
+Configurations with 29 used Cols          : 0
+Configurations with 30 used Cols          : 0
+Configurations with 31 used Cols          : 0
+Configurations with 32 used Cols          : 0
+Configurations with AVG Cols              : 5.126342
+Configurations with  0 used Cols in Loop  : 0
+Configurations with  1 used Cols in Loop  : 0
+Configurations with  2 used Cols in Loop  : 0
+Configurations with  3 used Cols in Loop  : 0
+Configurations with  4 used Cols in Loop  : 0
+Configurations with  5 used Cols in Loop  : 0
+Configurations with  6 used Cols in Loop  : 0
+Configurations with  7 used Cols in Loop  : 0
+Configurations with  8 used Cols in Loop  : 0
+Configurations with  9 used Cols in Loop  : 0
+Configurations with 10 used Cols in Loop  : 0
+Configurations with 11 used Cols in Loop  : 0
+Configurations with 12 used Cols in Loop  : 0
+Configurations with 13 used Cols in Loop  : 0
+Configurations with 14 used Cols in Loop  : 0
+Configurations with 15 used Cols in Loop  : 0
+Configurations with 16 used Cols in Loop  : 0
+Configurations with 17 used Cols in Loop  : 0
+Configurations with 18 used Cols in Loop  : 0
+Configurations with 19 used Cols in Loop  : 0
+Configurations with 20 used Cols in Loop  : 0
+Configurations with 21 used Cols in Loop  : 0
+Configurations with 22 used Cols in Loop  : 0
+Configurations with 23 used Cols in Loop  : 0
+Configurations with 24 used Cols in Loop  : 0
+Configurations with 25 used Cols in Loop  : 0
+Configurations with 26 used Cols in Loop  : 0
+Configurations with 27 used Cols in Loop  : 0
+Configurations with 28 used Cols in Loop  : 0
+Configurations with 29 used Cols in Loop  : 0
+Configurations with 30 used Cols in Loop  : 0
+Configurations with 31 used Cols in Loop  : 0
+Configurations with 32 used Cols in Loop  : 0
+Configurations with AVG Cols in loop      : -1.#IND00
+Max used Lines                            : 25
+The max Number of Lines used in Loop      : 0
+counter_branches_avg                      : 0.285234
+counter_branches_taken_avg                : 0.179957
+counter_branches_nottaken_avg             : 0.105277
+counter_ialus_avg                         : 1.065778
+counter_mult_avg                          : 0.003196
+counter_memory_avg                        : 0.602819
+counter_memory_read_avg                   : 0.356486
+counter_memory_write_avg                  : 0.246334
+Max number of FUs used in configuration   : 59
+Number of Lines in Max-FU-Conf            : 25
+Takt for Max-FU-Conf                      : 99380
+Max number of COLs used in configuration  : 14
+Number of Lines in Max-COL-Conf           : 8
+Takt for Max-COL-Conf                     : 131579
+Max number of LSs used in configuration   : 24
+Number of Lines in Max-LS-Conf            : 25
+Takt for Max-LS-Conf                      : 99380
+The max Number of columns used in Loop    : 0
