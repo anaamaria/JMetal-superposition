@@ -114,11 +114,31 @@ public class GAPRunner extends AbstractAlgorithmRunner {
         return dominates;
     }
 
+    private static void runBat() {
+        String batFilePath = "C:\\Users\\Ana\\Downloads\\JMetalSP-dissertation-NSGAII-SMPSO\\JMetalSP-dissertation-NSGAII-SMPSO\\simulator\\gap_dump_1717571900584_default-mibench-netw-dijkstra\\run.bat";
+        ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", batFilePath);
+
+        try {
+            Process process = processBuilder.start();
+            int exitCode = process.waitFor();
+            System.out.println("Batch file executed with exit code: " + exitCode);
+        } catch (IOException e) {
+            System.err.println("IOException occurred while executing batch file: " + e.getMessage());
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            System.err
+                    .println("InterruptedException occurred while waiting for batch file execution: " + e.getMessage());
+            e.printStackTrace();
+            Thread.currentThread().interrupt(); // Restore interrupted status
+        }
+    }
+
     public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException, TransformerException {
         //String problemName = "jmetal.problem.multiobjective.gap.GAPProblem";
         //Problem<DoubleSolution> problem = ProblemFactory.<DoubleSolution>loadProblem(problemName);
 
         //AbstractDoubleProblem problem = new DTLZ1(3, 2); //3 2
+        runBat();
         AbstractDoubleProblem problem = new GapProblem(6, 2);
 
         // PARAMETERS for NSGAII
@@ -132,7 +152,7 @@ public class GAPRunner extends AbstractAlgorithmRunner {
 
         SelectionOperator<List<DoubleSolution>, DoubleSolution> selection1 = new BinaryTournamentSelection<>(new RankingAndCrowdingDistanceComparator<>());
 
-        NSGAIIBuilder<DoubleSolution> builder = new NSGAIIBuilder<DoubleSolution>(problem, crossover1, mutation1, 200); //100
+        NSGAIIBuilder<DoubleSolution> builder = new NSGAIIBuilder<DoubleSolution>(problem, crossover1, mutation1, 50); //100
         builder.setMaxEvaluations(250)
                 .setMatingPoolSize(100);
 
@@ -152,7 +172,7 @@ public class GAPRunner extends AbstractAlgorithmRunner {
 
         // PARAMETERS + BUILD for SMPSO
         //DoubleProblem problem = (DoubleProblem) ProblemFactory.<DoubleSolution>loadProblem(problemName);
-        BoundedArchive<DoubleSolution> archive = new CrowdingDistanceArchive<>(200); //100
+        BoundedArchive<DoubleSolution> archive = new CrowdingDistanceArchive<>(50); //100
 
         double mutationProbability = 1.0 / problem.numberOfVariables();
         double mutationDistributionIndex = 20.0;
@@ -161,7 +181,7 @@ public class GAPRunner extends AbstractAlgorithmRunner {
         SMPSO smpso = new SMPSOBuilder((DoubleProblem) problem, archive)
                 .setMutation(mutation)
                 .setMaxIterations(250)
-                .setSwarmSize(200) //100
+                .setSwarmSize(50) //100
                 .setSolutionListEvaluator(new SequentialSolutionListEvaluator<DoubleSolution>())
                 .build();
 
