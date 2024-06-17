@@ -107,7 +107,8 @@ public class GapProblem extends AbstractDoubleProblem {
     
         // Create Command Line
         System.out.println(commandLineToExecute);
-        runCommandLine();
+        //runCommandLine();
+        runBat();
     
         //Wait for command line to finish
         try {
@@ -159,9 +160,9 @@ public class GapProblem extends AbstractDoubleProblem {
     }
 
     private void runCommandLine() {
-        String configFilePath = "configs/designSpace/config.xml";
-        String benchmarksPath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO-Radu/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra";
-        String simulatorPath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO-Radu/JMetalSP-dissertation-NSGAII-SMPSO/simulator/SimALU.exe";
+        String configFilePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/configs/designSpace/config.xml";
+        String benchmarksPath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra";
+        String simulatorPath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/SimALU.exe";
 
         try {
             // Load the config.xml file
@@ -192,7 +193,7 @@ public class GapProblem extends AbstractDoubleProblem {
                 // Print the command line
                 System.out.println("Command Line: " + String.join(" ", commandArray));
                 // Specify the working directory
-                File workingDirectory = new File("C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO-Radu/JMetalSP-dissertation-NSGAII-SMPSO/simulator");
+                File workingDirectory = new File("C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator");
 
                 // Run the simulator with the generated command line
                 Process process = Runtime.getRuntime().exec(commandArray, null, workingDirectory);
@@ -212,6 +213,18 @@ public class GapProblem extends AbstractDoubleProblem {
             // Handle the output or errors if needed
 
         } catch (ParserConfigurationException | SAXException | IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void runBat()
+    {
+        try {
+            ProcessBuilder pb = new ProcessBuilder("C:\\Users\\Ana\\Downloads\\JMetalSP-dissertation-NSGAII-SMPSO\\JMetalSP-dissertation-NSGAII-SMPSO\\simulator\\gap_dump_1717571900584_default-mibench-netw-dijkstra/run.bat");
+            pb.directory(new File("C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator"));
+            Process p = pb.start();
+            p.waitFor();
+        } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }

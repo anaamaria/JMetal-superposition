@@ -27,6 +27,7 @@ import jmetal.core.operator.selection.impl.BinaryTournamentSelection;
 import jmetal.core.problem.Problem;
 import jmetal.core.problem.doubleproblem.DoubleProblem;
 import jmetal.core.problem.doubleproblem.impl.AbstractDoubleProblem;
+import jmetal.core.problem.doubleproblem.impl.GapProblem;
 import jmetal.core.qualityindicator.impl.GenerationalDistance;
 import jmetal.core.qualityindicator.impl.SetCoverage;
 import jmetal.core.qualityindicator.impl.hypervolume.Hypervolume;
@@ -117,7 +118,8 @@ public class GAPRunner extends AbstractAlgorithmRunner {
         //String problemName = "jmetal.problem.multiobjective.gap.GAPProblem";
         //Problem<DoubleSolution> problem = ProblemFactory.<DoubleSolution>loadProblem(problemName);
 
-        AbstractDoubleProblem problem = new DTLZ1(3, 2); //3 2
+        //AbstractDoubleProblem problem = new DTLZ1(3, 2); //3 2
+        AbstractDoubleProblem problem = new GapProblem(6, 2);
 
         // PARAMETERS for NSGAII
         double crossoverProbability1 = 0.9;

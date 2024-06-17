@@ -50,7 +50,7 @@ public class MainClass2 {
                         .setCrossoverOperator(crossover1)
                         .setMutationOperator(mutation1)
                         .setSelectionOperator(selection1)
-                        .setPopulationSize(35)
+                        .setPopulationSize(10)
                         .setMaxIterations(10)
                         .setNumberOfDivisions(4)
                         .build();
@@ -66,7 +66,7 @@ public class MainClass2 {
         SMPSO smpso = new SMPSOBuilder(problem, archive)
                 .setMutation(mutation)
                 .setMaxIterations(10)
-                .setSwarmSize(35)
+                .setSwarmSize(10)
                 .setSolutionListEvaluator(new SequentialSolutionListEvaluator<DoubleSolution>())
                 .build();
 
