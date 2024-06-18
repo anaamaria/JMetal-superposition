@@ -5,13 +5,9 @@ import jmetal.algorithm.examples.superposition.AbstractSuperPositionGAPSOCombina
 import jmetal.algorithm.examples.superposition.AbstractSuperPositionPSO;
 import jmetal.algorithm.examples.superposition.NSGAIII_SMPSO.SuperPositionCombinator1;
 import jmetal.algorithm.examples.superposition.algorithms.SuperPositionNSGAII;
-import jmetal.algorithm.examples.superposition.algorithms.SuperPositionNSGAIII;
 import jmetal.algorithm.examples.superposition.algorithms.SuperPositionSMPSO;
 import jmetal.algorithm.multiobjective.nsgaii.NSGAII;
 import jmetal.algorithm.multiobjective.nsgaii.NSGAIIWrapper;
-import jmetal.algorithm.multiobjective.nsgaiii.NSGAIII;
-import jmetal.algorithm.multiobjective.nsgaiii.NSGAIIIBuilder;
-import jmetal.algorithm.multiobjective.nsgaiii.NSGAIIIWrapper;
 import jmetal.algorithm.multiobjective.smpso.SMPSO;
 import jmetal.algorithm.multiobjective.smpso.SMPSOBuilder;
 import jmetal.algorithm.multiobjective.smpso.SMPSOWrapper;
@@ -24,13 +20,10 @@ import jmetal.core.operator.mutation.MutationOperator;
 import jmetal.core.operator.mutation.impl.PolynomialMutation;
 import jmetal.core.operator.selection.SelectionOperator;
 import jmetal.core.operator.selection.impl.BinaryTournamentSelection;
-import jmetal.core.problem.Problem;
 import jmetal.core.problem.doubleproblem.DoubleProblem;
 import jmetal.core.problem.doubleproblem.impl.AbstractDoubleProblem;
 import jmetal.core.problem.doubleproblem.impl.GapProblem;
-import jmetal.core.qualityindicator.impl.GenerationalDistance;
 import jmetal.core.qualityindicator.impl.SetCoverage;
-import jmetal.core.qualityindicator.impl.hypervolume.Hypervolume;
 import jmetal.core.qualityindicator.impl.hypervolume.impl.PISAHypervolume;
 import jmetal.core.solution.doublesolution.DoubleSolution;
 import jmetal.core.util.AbstractAlgorithmRunner;
@@ -39,8 +32,6 @@ import jmetal.core.util.archive.BoundedArchive;
 import jmetal.core.util.archive.impl.CrowdingDistanceArchive;
 import jmetal.core.util.comparator.RankingAndCrowdingDistanceComparator;
 import jmetal.core.util.evaluator.impl.SequentialSolutionListEvaluator;
-import jmetal.problem.ProblemFactory;
-import jmetal.problem.multiobjective.dtlz.DTLZ1;
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -138,7 +129,7 @@ public class GAPRunner extends AbstractAlgorithmRunner {
         //Problem<DoubleSolution> problem = ProblemFactory.<DoubleSolution>loadProblem(problemName);
 
         //AbstractDoubleProblem problem = new DTLZ1(3, 2); //3 2
-        runBat();
+        //runBat();
         AbstractDoubleProblem problem = new GapProblem(6, 2);
 
         // PARAMETERS for NSGAII
@@ -152,7 +143,7 @@ public class GAPRunner extends AbstractAlgorithmRunner {
 
         SelectionOperator<List<DoubleSolution>, DoubleSolution> selection1 = new BinaryTournamentSelection<>(new RankingAndCrowdingDistanceComparator<>());
 
-        NSGAIIBuilder<DoubleSolution> builder = new NSGAIIBuilder<DoubleSolution>(problem, crossover1, mutation1, 50); //100
+        NSGAIIBuilder<DoubleSolution> builder = new NSGAIIBuilder<DoubleSolution>(problem, crossover1, mutation1, 2); //100
         builder.setMaxEvaluations(250)
                 .setMatingPoolSize(100);
 
@@ -181,7 +172,7 @@ public class GAPRunner extends AbstractAlgorithmRunner {
         SMPSO smpso = new SMPSOBuilder((DoubleProblem) problem, archive)
                 .setMutation(mutation)
                 .setMaxIterations(250)
-                .setSwarmSize(50) //100
+                .setSwarmSize(2) //100
                 .setSolutionListEvaluator(new SequentialSolutionListEvaluator<DoubleSolution>())
                 .build();
 

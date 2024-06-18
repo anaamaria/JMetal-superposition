@@ -6,15 +6,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.LinkedList;
 import java.util.List;
-import java.util.Random;
-
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -27,7 +22,6 @@ import org.xml.sax.SAXException;
 
 import jmetal.core.problem.integerproblem.IntegerProblem;
 import jmetal.core.solution.doublesolution.DoubleSolution;
-import jmetal.lab.visualization.html.impl.htmlTable.impl.MedianValuesTable.Objective;
 
 /**
  * Fake implementation of {@link IntegerProblem}. Intended to be used in unit
@@ -53,22 +47,6 @@ public class GapProblem extends AbstractDoubleProblem {
 
     String simulator_executable = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/SimALU.exe";
     String filePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra/results_27_18_16_24_16_64_2_loop_bpred/16L_27R_18C_4F_results.txt";
-    /** Temporary objectives */
-    public static final String NUMBER_OF_COLUMNS = "Number of Columns";
-    public static final String NUMBER_OF_LAYERS = "Number of Layers";
-    public static final String NUMBER_OF_LINES = "Number of Lines";
-    public static final String CACHE_CHUNK_SIZE = "Cache Configuration - Chunk size";
-    public static final String CACHE_SETS = "Cache Configuration - Sets";
-    public static final String CACHE_LINES_PER_SET = "Cache Configuration - Lines";
-    public static final String OBJECTIVE_CLOCK_CYCLES = "number of clock cycles";
-    public static final String OBJECTIVE_INSTRUCTIONS_PER_CLOCK_CYCLE = "instruction per clock cycle IPC";
-    // Objectives for HW
-    public static final String OBJECTIVE_CLOCKS_PER_INSTRUCTION = "Clocks per instruction CPI";
-    public static final String OBJECTIVE_HARDWARE_COMPLEXITY = "Hardware complexity";
-    // Objectives for SW
-    public static final String OBJECTIVE_CPRI = "clock cycles per reference instruction CPRI";
-    public static final String OBJECTIVE_OMSPRI = "optimization milli-seconds per reference instructions OmsPRI";
-    public static final String OBJECTIVE_OPTIMIZATION_TIME = "Optimization time (ms)";
 
     private static final double COST_PER_ALU = 1;
     private static final double COST_PER_LAYER_CELL = 0.02;
@@ -122,21 +100,38 @@ public class GapProblem extends AbstractDoubleProblem {
     @Override
     public DoubleSolution evaluate(DoubleSolution solution) {
         String commandLineToExecute = "";
-        // try {
-        // commandLineToExecute = this.getCommandLine(solution);
-        // } catch (IOException e) {
-        // throw new RuntimeException(e);
-        // }
+        try {
+        commandLineToExecute = this.getCommandLine(solution);
+        } catch (IOException e) {
+        throw new RuntimeException(e);
+        }
 
-        // // Create Command Line
-        // System.out.println(commandLineToExecute);
-        //runCommandLine();
+        // Create Command Line
+        System.out.println(commandLineToExecute);
+        try {
+            Runtime.getRuntime().exec(commandLineToExecute.toString().split(" ")).waitFor();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
 
         // Read results from the simulator output
-        var ipc = parseIPCFromFile(filePath);
+        String ipcFilePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra/results_" +
+            this.getActualValueForParameter(solution.variables().get(0), 0) + "_" + this.getActualValueForParameter(solution.variables().get(1), 1) + "_" + this.getActualValueForParameter(solution.variables().get(2), 2) + "_" + this.getActualValueForParameter(solution.variables().get(3), 3) + "_" + this.getActualValueForParameter(solution.variables().get(4), 4) + "_" + this.getActualValueForParameter(solution.variables().get(5), 5) + "_loop_bpred/" +
+            this.getActualValueForParameter(solution.variables().get(2), 2) + "R_" + this.getActualValueForParameter(solution.variables().get(0), 0) + "L_" + this.getActualValueForParameter(solution.variables().get(1), 1) + "C_4F_results.txt";
+
+        var ipc = parseIPCFromFile(ipcFilePath);
+        //var CPI = 1/ipc;
         var HC = 0.0;
         try {
-            HC = getHardwareComplexity(27, 18, 16, 16, 2, 64);
+            // HC = getHardwareComplexity(27, 18, 16, 16, 2, 64);
+            HC = getHardwareComplexity(this.getActualValueForParameter(solution.variables().get(0), 0), 
+            this.getActualValueForParameter(solution.variables().get(1), 1), 
+            this.getActualValueForParameter(solution.variables().get(2), 2), 
+            this.getActualValueForParameter(solution.variables().get(4), 4), 
+            this.getActualValueForParameter(solution.variables().get(6), 6), 
+            this.getActualValueForParameter(solution.variables().get(5), 5));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -154,10 +149,15 @@ public class GapProblem extends AbstractDoubleProblem {
     private String getCommandLine(DoubleSolution solution) throws IOException {
         String arguments = "";
         for (int i = 0; i < solution.variables().size(); i++) {
+            if (i == 3) {
+                arguments += " 24";
+            }
             arguments += " " + getActualValueForParameter(solution.variables().get(i), i);
         }
 
-        return getMySimulator() + " " + arguments;
+        String benchmarksPath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra";
+
+        return getMySimulator() + " " + benchmarksPath + arguments + " /lb";
     }
 
     private String getMySimulator() throws IOException {
