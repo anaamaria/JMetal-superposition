@@ -97,11 +97,13 @@ public class NSGAII<S extends Solution<?>> extends AbstractGeneticAlgorithm<S, L
 
   @Override
   protected void updateProgress() {
+    System.out.println("Evaluations: " + evaluations);
     evaluations += offspringPopulationSize;
   }
 
   @Override
   protected boolean isStoppingConditionReached() {
+    System.out.println("Evaluations: " + evaluations + " maxEvaluations: " + maxEvaluations);
     return evaluations >= maxEvaluations;
   }
 

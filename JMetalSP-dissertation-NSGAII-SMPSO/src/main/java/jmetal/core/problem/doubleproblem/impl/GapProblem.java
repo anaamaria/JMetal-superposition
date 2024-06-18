@@ -108,30 +108,37 @@ public class GapProblem extends AbstractDoubleProblem {
 
         // Create Command Line
         System.out.println(commandLineToExecute);
+        Process process = null;
         try {
-            Runtime.getRuntime().exec(commandLineToExecute.toString().split(" ")).waitFor();
+            process = Runtime.getRuntime().exec(commandLineToExecute.toString().split(" "));
+            process.waitFor();
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
+        } finally {
+            if (process != null && process.isAlive()) {
+                process.destroy();
+            }
         }
 
         // Read results from the simulator output
         String ipcFilePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra/results_" +
-            this.getActualValueForParameter(solution.variables().get(0), 0) + "_" + this.getActualValueForParameter(solution.variables().get(1), 1) + "_" + this.getActualValueForParameter(solution.variables().get(2), 2) + "_" + this.getActualValueForParameter(solution.variables().get(3), 3) + "_" + this.getActualValueForParameter(solution.variables().get(4), 4) + "_" + this.getActualValueForParameter(solution.variables().get(5), 5) + "_loop_bpred/" +
-            this.getActualValueForParameter(solution.variables().get(2), 2) + "R_" + this.getActualValueForParameter(solution.variables().get(0), 0) + "L_" + this.getActualValueForParameter(solution.variables().get(1), 1) + "C_4F_results.txt";
+            this.getActualValueForParameter(solution.variables().get(0), 0) + "_" + this.getActualValueForParameter(solution.variables().get(1), 1) + "_" + this.getActualValueForParameter(solution.variables().get(2), 2) + "_24_" + this.getActualValueForParameter(solution.variables().get(3), 3) + "_" + this.getActualValueForParameter(solution.variables().get(4), 4) + "_" + this.getActualValueForParameter(solution.variables().get(5), 5) + "_loop_bpred/" +
+            this.getActualValueForParameter(solution.variables().get(2), 2) + "L_" + this.getActualValueForParameter(solution.variables().get(0), 0) + "R_" + this.getActualValueForParameter(solution.variables().get(1), 1) + "C_4F_results.txt";
 
         var ipc = parseIPCFromFile(ipcFilePath);
-        //var CPI = 1/ipc;
+        var CPI = 1/ipc;
         var HC = 0.0;
         try {
             // HC = getHardwareComplexity(27, 18, 16, 16, 2, 64);
-            HC = getHardwareComplexity(this.getActualValueForParameter(solution.variables().get(0), 0), 
-            this.getActualValueForParameter(solution.variables().get(1), 1), 
-            this.getActualValueForParameter(solution.variables().get(2), 2), 
-            this.getActualValueForParameter(solution.variables().get(4), 4), 
-            this.getActualValueForParameter(solution.variables().get(6), 6), 
-            this.getActualValueForParameter(solution.variables().get(5), 5));
+            HC = getHardwareComplexity(
+                this.getActualValueForParameter(solution.variables().get(0), 0), 
+                this.getActualValueForParameter(solution.variables().get(1), 1), 
+                this.getActualValueForParameter(solution.variables().get(2), 2), 
+                this.getActualValueForParameter(solution.variables().get(3), 3), 
+                this.getActualValueForParameter(solution.variables().get(5), 5), 
+                this.getActualValueForParameter(solution.variables().get(4), 4));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -139,7 +146,7 @@ public class GapProblem extends AbstractDoubleProblem {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            solution.objectives()[0] = ipc;
+            solution.objectives()[0] = CPI;
             solution.objectives()[1] = HC;
         }
 
