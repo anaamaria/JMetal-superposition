@@ -10,6 +10,8 @@ import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
@@ -46,7 +48,7 @@ import jmetal.core.solution.doublesolution.DoubleSolution;
 public class GapProblem extends AbstractDoubleProblem {
 
     String simulator_executable = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/SimALU.exe";
-    String filePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra/results_27_18_16_24_16_64_2_loop_bpred/16L_27R_18C_4F_results.txt";
+    String filePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717572239909_default-mibench-auto-qsort/results_27_18_16_24_16_64_2_loop_bpred/16L_27R_18C_4F_results.txt";
 
     private static final double COST_PER_ALU = 1;
     private static final double COST_PER_LAYER_CELL = 0.02;
@@ -111,19 +113,20 @@ public class GapProblem extends AbstractDoubleProblem {
         Process process = null;
         try {
             process = Runtime.getRuntime().exec(commandLineToExecute.toString().split(" "));
-            process.waitFor();
+            // process.wait(35000);
+            process.waitFor(35000, TimeUnit.MILLISECONDS);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } finally {
             if (process != null && process.isAlive()) {
-                process.destroy();
+                process.destroyForcibly();
             }
         }
 
         // Read results from the simulator output
-        String ipcFilePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra/results_" +
+        String ipcFilePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717572239909_default-mibench-auto-qsort/results_" +
             this.getActualValueForParameter(solution.variables().get(0), 0) + "_" + this.getActualValueForParameter(solution.variables().get(1), 1) + "_" + this.getActualValueForParameter(solution.variables().get(2), 2) + "_24_" + this.getActualValueForParameter(solution.variables().get(3), 3) + "_" + this.getActualValueForParameter(solution.variables().get(4), 4) + "_" + this.getActualValueForParameter(solution.variables().get(5), 5) + "_loop_bpred/" +
             this.getActualValueForParameter(solution.variables().get(2), 2) + "L_" + this.getActualValueForParameter(solution.variables().get(0), 0) + "R_" + this.getActualValueForParameter(solution.variables().get(1), 1) + "C_4F_results.txt";
 
@@ -162,7 +165,8 @@ public class GapProblem extends AbstractDoubleProblem {
             arguments += " " + getActualValueForParameter(solution.variables().get(i), i);
         }
 
-        String benchmarksPath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra";
+       // String benchmarksPath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra";
+        String benchmarksPath = "C:\\Users\\Ana\\Downloads\\JMetalSP-dissertation-NSGAII-SMPSO\\JMetalSP-dissertation-NSGAII-SMPSO\\simulator\\gap_dump_1717572239909_default-mibench-auto-qsort";
 
         return getMySimulator() + " " + benchmarksPath + arguments + " /lb";
     }
@@ -186,65 +190,6 @@ public class GapProblem extends AbstractDoubleProblem {
             return integerValue;
         }
         return (int) (Math.pow(2, integerValue));
-    }
-
-    private void runCommandLine() {
-        String configFilePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/configs/designSpace/config.xml";
-        String benchmarksPath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra";
-        String simulatorPath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/SimALU.exe";
-
-        try {
-            // Load the config.xml file
-            File configFile = new File(configFilePath);
-            DocumentBuilderFactory dbFactory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder dBuilder = dbFactory.newDocumentBuilder();
-            Document doc = dBuilder.parse(configFile);
-            doc.getDocumentElement().normalize();
-
-            // Extract the parameter values
-            NodeList parameterList = doc.getElementsByTagName("parameter");
-            StringBuilder commandLine = new StringBuilder(simulatorPath);
-            StringBuilder benchBuilder = new StringBuilder(benchmarksPath);
-            commandLine.append(" ").append(benchBuilder.toString());
-            for (int i = 0; i < parameterList.getLength(); i++) {
-                Node parameterNode = parameterList.item(i);
-                if (parameterNode.getNodeType() == Node.ELEMENT_NODE) {
-                    Element parameterElement = (Element) parameterNode;
-                    // String parameterName = parameterElement.getAttribute("name");
-                    String parameterValue = parameterElement.getAttribute("value");
-                    commandLine.append(" -").append("").append(parameterValue);
-                }
-            }
-            commandLine.append(" /lb");
-            try {
-                // Split the command line into an array of Strings
-                String[] commandArray = commandLine.toString().split(" ");
-                // Print the command line
-                System.out.println("Command Line: " + String.join(" ", commandArray));
-                // Specify the working directory
-                File workingDirectory = new File(
-                        "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator");
-
-                // Run the simulator with the generated command line
-                Process process = Runtime.getRuntime().exec(commandArray, null, workingDirectory);
-
-                try (java.io.BufferedReader reader = new java.io.BufferedReader(
-                        new java.io.InputStreamReader(process.getInputStream()))) {
-                    String line;
-                    while ((line = reader.readLine()) != null) {
-                        System.out.println(line);
-                    }
-                }
-
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            // Handle the output or errors if needed
-
-        } catch (ParserConfigurationException | SAXException | IOException e) {
-            e.printStackTrace();
-        }
     }
 
     public double parseIPCFromFile(String filePath) {

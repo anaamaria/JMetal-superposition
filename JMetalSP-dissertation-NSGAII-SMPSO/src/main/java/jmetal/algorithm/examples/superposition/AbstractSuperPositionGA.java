@@ -30,6 +30,18 @@ public abstract class AbstractSuperPositionGA<S, R> extends AbstractEvolutionary
         population = createInitialPopulation();
         population = evaluatePopulation(population);
         initProgress();
+
+        if (isStoppingConditionReached()) {
+            onNewGeneration.invoke();
+            
+            isWaiting = true;
+
+            while (isWaiting)
+            {
+                Thread.onSpinWait();
+            }
+        }
+
         while (!isStoppingConditionReached()) {
             matingPopulation = selection(population);
             offspringPopulation = reproduction(matingPopulation);

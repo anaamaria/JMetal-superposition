@@ -24,6 +24,7 @@ import jmetal.core.problem.doubleproblem.DoubleProblem;
 import jmetal.core.problem.doubleproblem.impl.AbstractDoubleProblem;
 import jmetal.core.problem.doubleproblem.impl.GapProblem;
 import jmetal.core.qualityindicator.impl.SetCoverage;
+import jmetal.core.qualityindicator.impl.hypervolume.Hypervolume;
 import jmetal.core.qualityindicator.impl.hypervolume.impl.PISAHypervolume;
 import jmetal.core.solution.doublesolution.DoubleSolution;
 import jmetal.core.util.AbstractAlgorithmRunner;
@@ -32,6 +33,7 @@ import jmetal.core.util.archive.BoundedArchive;
 import jmetal.core.util.archive.impl.CrowdingDistanceArchive;
 import jmetal.core.util.comparator.RankingAndCrowdingDistanceComparator;
 import jmetal.core.util.evaluator.impl.SequentialSolutionListEvaluator;
+
 import org.xml.sax.SAXException;
 
 import javax.xml.parsers.ParserConfigurationException;
@@ -48,6 +50,8 @@ public class GAPRunner extends AbstractAlgorithmRunner {
         }
         return coverageValues;
     }
+
+    
 
     private static double[][] generateTrueParetoFront(DoubleProblem problem, int numberOfPoints) {
         int numberOfObjectives = problem.numberOfObjectives();
@@ -71,25 +75,47 @@ public class GAPRunner extends AbstractAlgorithmRunner {
         return paretoFront;
     }
 
-    public static void evaluateMetrics(List<DoubleSolution> population, double[][] referenceParetoFront) {
-        // Convert the population and reference Pareto front to double arrays for evaluation
-        double[][] populationArray = population.stream()
-                .map(solution -> solution.variables().stream().mapToDouble(Double::doubleValue).toArray())
-                .toArray(double[][]::new);
+    public static void evaluateMetrics(List<DoubleSolution> population) {
+        ParetoFrontGenerator paretoFrontGenerator = new ParetoFrontGenerator();
+        double[][] referenceParetoFront = paretoFrontGenerator.generateTrueParetoFront(population);
 
-        double[][] adjustedReferenceParetoFront = new double[referenceParetoFront.length][2];
-        for (int i = 0; i < referenceParetoFront.length; i++) {
-            System.arraycopy(referenceParetoFront[i], 0, adjustedReferenceParetoFront[i], 0, 2);
+        double[][] objectivesArray = new double[population.size()][];
+        for (int i = 0; i < population.size(); i++) {
+            objectivesArray[i] = population.get(i).objectives();
         }
 
+        int numObjectives = objectivesArray[0].length;
+        int numSolutions = objectivesArray.length;
+
+        double[] maxValues = new double[numObjectives];
+        for (int i = 0; i < numObjectives; i++) {
+            maxValues[i] = Double.NEGATIVE_INFINITY;
+        }
+
+        for (double[] objective : objectivesArray) {
+            for (int j = 0; j < numObjectives; j++) {
+                if (objective[j] > maxValues[j]) {
+                    maxValues[j] = objective[j];
+                }
+            }
+        }
+
+        double[][] invertedObjectives = new double[numSolutions][numObjectives];
+        for (int i = 0; i < numSolutions; i++) {
+            for (int j = 0; j < numObjectives; j++) {
+                invertedObjectives[i][j] = maxValues[j] - objectivesArray[i][j];
+            }
+        }
+
+        
         // Hypervolume
-        PISAHypervolume hypervolume = new PISAHypervolume(adjustedReferenceParetoFront);
-        double hypervolumeValue = hypervolume.compute(populationArray);
+        PISAHypervolume hypervolume = new PISAHypervolume(referenceParetoFront);
+        double hypervolumeValue = hypervolume.compute(invertedObjectives);
         JMetalLogger.logger.info("Hypervolume: " + hypervolumeValue);
 
         // Set Coverage A->B
-        SetCoverage setCoverage = new SetCoverage(adjustedReferenceParetoFront);
-        double setCoverageValueAB = setCoverage.compute(populationArray);
+        SetCoverage setCoverage = new SetCoverage(referenceParetoFront);
+        double setCoverageValueAB = setCoverage.compute(invertedObjectives);
         JMetalLogger.logger.info("Set Coverage (A -> B): " + setCoverageValueAB);
     }
 
@@ -143,9 +169,9 @@ public class GAPRunner extends AbstractAlgorithmRunner {
 
         SelectionOperator<List<DoubleSolution>, DoubleSolution> selection1 = new BinaryTournamentSelection<>(new RankingAndCrowdingDistanceComparator<>());
 
-        NSGAIIBuilder<DoubleSolution> builder = new NSGAIIBuilder<DoubleSolution>(problem, crossover1, mutation1, 2); //100
-        builder.setMaxEvaluations(250)
-                .setMatingPoolSize(100);
+        NSGAIIBuilder<DoubleSolution> builder = new NSGAIIBuilder<DoubleSolution>(problem, crossover1, mutation1, 10); //100
+        builder.setMaxEvaluations(20)
+                .setMatingPoolSize(2);
 
 
         // Build and run NSGA-II algorithm
@@ -163,7 +189,7 @@ public class GAPRunner extends AbstractAlgorithmRunner {
 
         // PARAMETERS + BUILD for SMPSO
         //DoubleProblem problem = (DoubleProblem) ProblemFactory.<DoubleSolution>loadProblem(problemName);
-        BoundedArchive<DoubleSolution> archive = new CrowdingDistanceArchive<>(50); //100
+        BoundedArchive<DoubleSolution> archive = new CrowdingDistanceArchive<>(2); //100
 
         double mutationProbability = 1.0 / problem.numberOfVariables();
         double mutationDistributionIndex = 20.0;
@@ -171,8 +197,8 @@ public class GAPRunner extends AbstractAlgorithmRunner {
 
         SMPSO smpso = new SMPSOBuilder((DoubleProblem) problem, archive)
                 .setMutation(mutation)
-                .setMaxIterations(250)
-                .setSwarmSize(2) //100
+                .setMaxIterations(20)
+                .setSwarmSize(10) //100
                 .setSolutionListEvaluator(new SequentialSolutionListEvaluator<DoubleSolution>())
                 .build();
 
@@ -227,11 +253,12 @@ public class GAPRunner extends AbstractAlgorithmRunner {
             }
 
             //  Generate the true Pareto front
-            double[][] referenceParetoFront = generateTrueParetoFront(problem, 2);
+            //double[][] referenceParetoFront = generateTrueParetoFront(problem, 4);
+
 
             //  Evaluate the solutions using quality indicators
-            evaluateMetrics(result, referenceParetoFront);
-        };
+            evaluateMetrics(result);
+       };
 
         Thread combinatorThread = new Thread(superPositionCombinator);
         Thread nsgaIIThread = new Thread(superPositionNSGAII);
