@@ -48,7 +48,7 @@ import jmetal.core.solution.doublesolution.DoubleSolution;
 public class GapProblem extends AbstractDoubleProblem {
 
     String simulator_executable = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/SimALU.exe";
-    String filePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717572239909_default-mibench-auto-qsort/results_27_18_16_24_16_64_2_loop_bpred/16L_27R_18C_4F_results.txt";
+    String filePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra/results_27_18_16_24_16_64_2_loop_bpred/16L_27R_18C_4F_results.txt";
 
     private static final double COST_PER_ALU = 1;
     private static final double COST_PER_LAYER_CELL = 0.02;
@@ -114,7 +114,7 @@ public class GapProblem extends AbstractDoubleProblem {
         try {
             process = Runtime.getRuntime().exec(commandLineToExecute.toString().split(" "));
             // process.wait(35000);
-            process.waitFor(35000, TimeUnit.MILLISECONDS);
+            process.waitFor(50000, TimeUnit.MILLISECONDS);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -126,13 +126,13 @@ public class GapProblem extends AbstractDoubleProblem {
         }
 
         // Read results from the simulator output
-        String ipcFilePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717572239909_default-mibench-auto-qsort/results_" +
+        String ipcFilePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra/results_" +
             this.getActualValueForParameter(solution.variables().get(0), 0) + "_" + this.getActualValueForParameter(solution.variables().get(1), 1) + "_" + this.getActualValueForParameter(solution.variables().get(2), 2) + "_24_" + this.getActualValueForParameter(solution.variables().get(3), 3) + "_" + this.getActualValueForParameter(solution.variables().get(4), 4) + "_" + this.getActualValueForParameter(solution.variables().get(5), 5) + "_loop_bpred/" +
             this.getActualValueForParameter(solution.variables().get(2), 2) + "L_" + this.getActualValueForParameter(solution.variables().get(0), 0) + "R_" + this.getActualValueForParameter(solution.variables().get(1), 1) + "C_4F_results.txt";
 
-        var ipc = parseIPCFromFile(ipcFilePath);
-        var CPI = 1/ipc;
-        var HC = 0.0;
+        double ipc = parseIPCFromFile(ipcFilePath);
+        double CPI = 1/ipc;
+        double HC = 0.0;
         try {
             // HC = getHardwareComplexity(27, 18, 16, 16, 2, 64);
             HC = getHardwareComplexity(
@@ -149,6 +149,9 @@ public class GapProblem extends AbstractDoubleProblem {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
+            if (Double.isInfinite(CPI)) {
+                CPI = 0.99;
+            }
             solution.objectives()[0] = CPI;
             solution.objectives()[1] = HC;
         }
@@ -165,9 +168,10 @@ public class GapProblem extends AbstractDoubleProblem {
             arguments += " " + getActualValueForParameter(solution.variables().get(i), i);
         }
 
-       // String benchmarksPath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra";
-        String benchmarksPath = "C:\\Users\\Ana\\Downloads\\JMetalSP-dissertation-NSGAII-SMPSO\\JMetalSP-dissertation-NSGAII-SMPSO\\simulator\\gap_dump_1717572239909_default-mibench-auto-qsort";
-
+        String benchmarksPath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra";
+        // String benchmarksPath = "C:\\Users\\Ana\\Downloads\\JMetalSP-dissertation-NSGAII-SMPSO\\JMetalSP-dissertation-NSGAII-SMPSO\\simulator\\gap_dump_1717572239909_default-mibench-auto-qsort";
+       // String benchmarksPath = "C:\\Users\\Ana\\Downloads\\JMetalSP-dissertation-NSGAII-SMPSO\\JMetalSP-dissertation-NSGAII-SMPSO\\simulator\\gap_dump_1717572188697_default-mibench-offi-stringsearch";
+        
         return getMySimulator() + " " + benchmarksPath + arguments + " /lb";
     }
 
@@ -494,136 +498,4 @@ public class GapProblem extends AbstractDoubleProblem {
             cacheComplexity.put(key, line[3]);
         }
     }
-
-    // public LinkedList<Objective> getResults() {
-    //     String simulatorOutputFile = "C:\\Users\\Ana\\Downloads\\JMetalSP-dissertation-NSGAII-SMPSO\\JMetalSP-dissertation-NSGAII-SMPSO\\simulator\\gap_dump_1717571900584_default-mibench-netw-dijkstra\\results_27_18_16_24_16_64_2_loop_bpred";
-    //     File file = new File(simulatorOutputFile);
-
-    //     // Check file it is dir or not...
-    //     if (file.isDirectory()) {
-    //         // Somebody specified a directory... browse through it.
-    //         for (File item : file.listFiles()) {
-    //             if (item.getName().endsWith("results.txt")) {
-    //                 file = item;
-    //                 break;
-    //             }
-    //         }
-    //     }
-    //     System.out.println("Found result file: " + file);
-
-    //     // Add some more keys which are needed to calculate combined objectives
-    //     this.results.put(NUMBER_OF_LINES, Double.NaN);
-    //     this.results.put(NUMBER_OF_LAYERS, Double.NaN);
-    //     this.results.put(NUMBER_OF_COLUMNS, Double.NaN);
-
-    //     this.results.put(CACHE_CHUNK_SIZE, Double.NaN);
-    //     this.results.put(CACHE_LINES_PER_SET, Double.NaN);
-    //     this.results.put(CACHE_SETS, Double.NaN);
-
-    //     this.results.put(OBJECTIVE_CLOCK_CYCLES, Double.NaN);
-    //     this.results.put(OBJECTIVE_INSTRUCTIONS_PER_CLOCK_CYCLE, Double.NaN);
-
-    //     this.results.put(OBJECTIVE_OPTIMIZATION_TIME, Double.NaN);
-
-    //     // Process the file and find some objectives => can be found in this.results
-    //     this.processFile(individual);
-
-    //     // Remove them again and remember the values
-    //     double lines = this.results.remove(NUMBER_OF_LINES);
-    //     double layers = this.results.remove(NUMBER_OF_LAYERS);
-    //     double columns = this.results.remove(NUMBER_OF_COLUMNS);
-
-    //     double cache_chunk_size = this.results.remove(CACHE_CHUNK_SIZE);
-    //     double cache_lines_per_set = this.results.remove(CACHE_LINES_PER_SET);
-    //     double cache_sets = this.results.remove(CACHE_SETS);
-
-    //     double clock_cycles = this.results.remove(OBJECTIVE_CLOCK_CYCLES);
-    //     double ipc = this.results.remove(OBJECTIVE_INSTRUCTIONS_PER_CLOCK_CYCLE);
-    //     double optimization_time = this.results.remove(OBJECTIVE_OPTIMIZATION_TIME);
-
-    //     // The return object
-    //     LinkedList<Objective> finalResults = new LinkedList<Objective>();
-
-    //     // Go through all the objectives and copy them to the return-object finalResults
-    //     try {
-    //         for (Objective obj : this.currentObjectives) {
-    //             String key = obj.getName();
-
-    //             // First handle the complex objectives
-    //             if (key.equals(OBJECTIVE_HARDWARE_COMPLEXITY)) {
-    //                 double complexity;
-
-    //                 complexity = this.getHardwareComplexity(lines, columns, layers, cache_chunk_size,
-    //                         cache_lines_per_set, cache_sets);
-
-    //                 System.out.println("Calculated Value for Hardware complexity: " + complexity);
-    //                 obj.setValue(complexity);
-    //             } else if (key.equals(OBJECTIVE_CPRI)) {
-    //                 System.out.println(
-    //                         "Calculating CPRI: clock_cycles=" + clock_cycles
-    //                                 + ", getMyReferenceInstructionCount(individual)="
-    //                                 + getMyReferenceInstructionCount(individual));
-
-    //                 double ripc = (double) clock_cycles / (double) getMyReferenceInstructionCount(individual);
-
-    //                 obj.setValue(ripc);
-    //             } else if (key.equals(OBJECTIVE_CLOCKS_PER_INSTRUCTION)) {
-    //                 System.out.println("Calculating CPI: IPC=" + ipc);
-    //                 double cpi = 1 / ipc;
-
-    //                 obj.setValue(cpi);
-    //             } else if (key.equals(OBJECTIVE_OMSPRI)) {
-    //                 System.out.println("Au weh zwick II => OMSPRI");
-
-    //                 int ref_insn_count = this.getMyReferenceInstructionCount(individual);
-    //                 System.out.println("  ref_insn_count: " + ref_insn_count);
-    //                 System.out.println("  optimization_time: " + optimization_time);
-
-    //                 double ripos = (double) optimization_time / (double) ref_insn_count;
-
-    //                 obj.setValue(ripos);
-    //             } else {
-    //                 // It is a default/simple objective corresponding to a single line
-    //                 if (this.results.containsKey(key) && this.results.get(key) != null) {
-    //                     obj.setValue(this.results.get(key));
-    //                     System.out.println("Found value for " + key + ": " + this.results.get(key));
-    //                 } else {
-    //                     individual.markAsInfeasibleAndSetBadValuesForObjectives(
-    //                             "Objective " + key + " cannot be found (not existent or null): " + this.results);
-    //                     setWorstObjectives(finalResults);
-    //                     break;
-    //                 }
-    //             }
-
-    //             finalResults.add(obj);
-    //             System.out.println(
-    //                     "Final Results after adding " + obj.getValue() + " for " + obj.getName() + ": " + finalResults);
-    //         }
-    //     } catch (Exception ex) {
-    //         System.out.println("Error while calculating Objective: " + ex.getMessage());
-    //         individual.markAsInfeasibleAndSetBadValuesForObjectives("Error calculating objective: " + ex.getMessage());
-    //         setWorstObjectives(finalResults);
-    //     }
-
-    //     // Check if one of the values if MAX, then set as infeasible
-    //     for (Objective item : finalResults) {
-    //         if (item.getValue() == Double.MAX_VALUE) {
-    //             individual.markAsInfeasibleAndSetBadValuesForObjectives(
-    //                     "one of the objectives is Double.MAX_VALUE: " + finalResults);
-    //             setWorstObjectives(finalResults);
-    //             break;
-    //         }
-    //     }
-
-    //     // If infeasible, then set all values to max.
-    //     if (!individual.isFeasible()) {
-    //         // Set all the objectives to the max available value...
-    //         System.out.println("Individual is infeasible - clear objectives.");
-    //         setWorstObjectives(finalResults);
-    //     }
-
-    //     System.out.println("I calculated as results: " + finalResults);
-
-    //     return finalResults;
-    // }
 }

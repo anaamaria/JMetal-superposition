@@ -1,12 +1,14 @@
 package jmetal.algorithm.examples.multiobjective;
+
 import java.util.ArrayList;
 import java.util.List;
 
+import jmetal.core.solution.Solution;
 import jmetal.core.solution.doublesolution.DoubleSolution;
 
 public class ParetoFrontGenerator {
 
-   public double[][] generateTrueParetoFront(List<DoubleSolution> solutions) {
+    public double[][] generateTrueParetoFront(List<DoubleSolution> solutions) {
         List<DoubleSolution> paretoFront = new ArrayList<>();
 
         for (DoubleSolution candidate : solutions) {
@@ -28,27 +30,31 @@ public class ParetoFrontGenerator {
             }
         }
 
-        double[][] paretoObjectives = new double[paretoFront.size()][];
-        for (int i = 0; i < paretoFront.size(); i++) {
-            paretoObjectives[i] = paretoFront.get(i).objectives();
-        }
+        return convertSolutionsToObjectivesArray(paretoFront);
+    }
 
-        return paretoObjectives;
+    public double[][] convertSolutionsToObjectivesArray(List<DoubleSolution> solutions) {
+        double[][] objectivesArray = new double[solutions.size()][];
+        for (int i = 0; i < solutions.size(); i++) {
+            objectivesArray[i] = solutions.get(i).objectives();
+        }
+        return objectivesArray;
     }
 
     private boolean dominates(DoubleSolution solution1, DoubleSolution solution2) {
-        double[] objectives1 = solution1.objectives();
-        double[] objectives2 = solution2.objectives();
+        double[] point1 = solution1.objectives();
+        double[] point2 = solution2.objectives();
 
-        boolean betterInOneAspect = false;
-        for (int i = 0; i < objectives1.length; i++) {
-            if (objectives1[i] < objectives2[i]) {
-                betterInOneAspect = true;
-            } else if (objectives1[i] > objectives2[i]) {
-                return false;
+        int i;
+        int betterInAnyObjective;
+
+        betterInAnyObjective = 0;
+        for (i = 0; i < solution1.objectives().length && point1[i] >= point2[i]; i++) {
+            if (point1[i] > point2[i]) {
+                betterInAnyObjective = 1;
             }
         }
 
-        return betterInOneAspect;
+        return ((i >= solution1.objectives().length) && (betterInAnyObjective > 0));
     }
 }

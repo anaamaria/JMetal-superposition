@@ -43,120 +43,27 @@ import java.util.List;
 
 public class GAPRunner extends AbstractAlgorithmRunner {
 
-    private static double[] computeCoverageValue(DoubleSolution solution) {
-        double[] coverageValues = new double[solution.variables().size()];
-        for (int i = 0; i < solution.variables().size(); i++) {
-            coverageValues[i] = solution.variables().get(i);
-        }
-        return coverageValues;
-    }
-
-    
-
-    private static double[][] generateTrueParetoFront(DoubleProblem problem, int numberOfPoints) {
-        int numberOfObjectives = problem.numberOfObjectives();
-        double[][] paretoFront = new double[numberOfPoints][numberOfObjectives];
-
-        for (int i = 0; i < numberOfPoints; i++) {
-            double[] point = new double[numberOfObjectives];
-            double sum = 0.0;
-            for (int j = 0; j < numberOfObjectives; j++) {
-                if (j == 0) {
-                    point[j] = (double) i / (numberOfPoints - 1);
-                } else {
-                    point[j] = 0.5 * (1 - Math.cos((double) (i * Math.PI) / (numberOfPoints - 1)));
-                }
-                sum += point[j];
-            }
-            for (int j = 0; j < numberOfObjectives; j++) {
-                paretoFront[i][j] = point[j] / sum;
-            }
-        }
-        return paretoFront;
-    }
-
     public static void evaluateMetrics(List<DoubleSolution> population) {
         ParetoFrontGenerator paretoFrontGenerator = new ParetoFrontGenerator();
+
         double[][] referenceParetoFront = paretoFrontGenerator.generateTrueParetoFront(population);
 
-        double[][] objectivesArray = new double[population.size()][];
-        for (int i = 0; i < population.size(); i++) {
-            objectivesArray[i] = population.get(i).objectives();
-        }
-
-        int numObjectives = objectivesArray[0].length;
-        int numSolutions = objectivesArray.length;
-
-        double[] maxValues = new double[numObjectives];
-        for (int i = 0; i < numObjectives; i++) {
-            maxValues[i] = Double.NEGATIVE_INFINITY;
-        }
-
-        for (double[] objective : objectivesArray) {
-            for (int j = 0; j < numObjectives; j++) {
-                if (objective[j] > maxValues[j]) {
-                    maxValues[j] = objective[j];
-                }
-            }
-        }
-
-        double[][] invertedObjectives = new double[numSolutions][numObjectives];
-        for (int i = 0; i < numSolutions; i++) {
-            for (int j = 0; j < numObjectives; j++) {
-                invertedObjectives[i][j] = maxValues[j] - objectivesArray[i][j];
-            }
-        }
-
+        // Convert the population to a double array for evaluation
+        double[][] frontPareto = paretoFrontGenerator.convertSolutionsToObjectivesArray(population);
         
         // Hypervolume
-        PISAHypervolume hypervolume = new PISAHypervolume(referenceParetoFront);
-        double hypervolumeValue = hypervolume.compute(invertedObjectives);
+        PISAHypervolume hypervolume = new PISAHypervolume();
+        double hypervolumeValue = hypervolume.compute(frontPareto);
         JMetalLogger.logger.info("Hypervolume: " + hypervolumeValue);
 
         // Set Coverage A->B
-        SetCoverage setCoverage = new SetCoverage(referenceParetoFront);
-        double setCoverageValueAB = setCoverage.compute(invertedObjectives);
+        SetCoverage setCoverage = new SetCoverage();
+        double setCoverageValueAB = setCoverage.compute(frontPareto, referenceParetoFront);
         JMetalLogger.logger.info("Set Coverage (A -> B): " + setCoverageValueAB);
     }
 
-    private static boolean dominates(double[] solution, double[] point) {
-        boolean dominates = false;
-        for (int i = 0; i < solution.length; i++) {
-            if (solution[i] > point[i]) {
-                return false;
-            } else if (solution[i] < point[i]) {
-                dominates = true;
-            }
-        }
-        return dominates;
-    }
-
-    private static void runBat() {
-        String batFilePath = "C:\\Users\\Ana\\Downloads\\JMetalSP-dissertation-NSGAII-SMPSO\\JMetalSP-dissertation-NSGAII-SMPSO\\simulator\\gap_dump_1717571900584_default-mibench-netw-dijkstra\\run.bat";
-        ProcessBuilder processBuilder = new ProcessBuilder("cmd.exe", "/c", batFilePath);
-
-        try {
-            Process process = processBuilder.start();
-            int exitCode = process.waitFor();
-            System.out.println("Batch file executed with exit code: " + exitCode);
-        } catch (IOException e) {
-            System.err.println("IOException occurred while executing batch file: " + e.getMessage());
-            e.printStackTrace();
-        } catch (InterruptedException e) {
-            System.err
-                    .println("InterruptedException occurred while waiting for batch file execution: " + e.getMessage());
-            e.printStackTrace();
-            Thread.currentThread().interrupt(); // Restore interrupted status
-        }
-    }
-
     public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException, TransformerException {
-        //String problemName = "jmetal.problem.multiobjective.gap.GAPProblem";
-        //Problem<DoubleSolution> problem = ProblemFactory.<DoubleSolution>loadProblem(problemName);
-
-        //AbstractDoubleProblem problem = new DTLZ1(3, 2); //3 2
-        //runBat();
-        AbstractDoubleProblem problem = new GapProblem(6, 2);
+        AbstractDoubleProblem problem = new GapProblem();
 
         // PARAMETERS for NSGAII
         double crossoverProbability1 = 0.9;
@@ -169,23 +76,13 @@ public class GAPRunner extends AbstractAlgorithmRunner {
 
         SelectionOperator<List<DoubleSolution>, DoubleSolution> selection1 = new BinaryTournamentSelection<>(new RankingAndCrowdingDistanceComparator<>());
 
-        NSGAIIBuilder<DoubleSolution> builder = new NSGAIIBuilder<DoubleSolution>(problem, crossover1, mutation1, 10); //100
-        builder.setMaxEvaluations(20)
+        NSGAIIBuilder<DoubleSolution> builder = new NSGAIIBuilder<DoubleSolution>(problem, crossover1, mutation1, 50); //100
+        builder.setMaxEvaluations(100)
                 .setMatingPoolSize(2);
 
 
         // Build and run NSGA-II algorithm
         NSGAII<DoubleSolution> algorithm = builder.build();
-
-//         NSGAIII<DoubleSolution> nsgaIII =
-//                 new NSGAIIIBuilder<>(problem)
-//                         .setCrossoverOperator(crossover1)
-//                         .setMutationOperator(mutation1)
-//                         .setSelectionOperator(selection1)
-//                         .setPopulationSize(35)
-//                         .setMaxIterations(10)
-//                         .setNumberOfDivisions(4)
-//                         .build();
 
         // PARAMETERS + BUILD for SMPSO
         //DoubleProblem problem = (DoubleProblem) ProblemFactory.<DoubleSolution>loadProblem(problemName);
@@ -197,8 +94,8 @@ public class GAPRunner extends AbstractAlgorithmRunner {
 
         SMPSO smpso = new SMPSOBuilder((DoubleProblem) problem, archive)
                 .setMutation(mutation)
-                .setMaxIterations(20)
-                .setSwarmSize(10) //100
+                .setMaxIterations(100)
+                .setSwarmSize(50) //100
                 .setSolutionListEvaluator(new SequentialSolutionListEvaluator<DoubleSolution>())
                 .build();
 
@@ -251,10 +148,6 @@ public class GAPRunner extends AbstractAlgorithmRunner {
 
                 System.out.println();
             }
-
-            //  Generate the true Pareto front
-            //double[][] referenceParetoFront = generateTrueParetoFront(problem, 4);
-
 
             //  Evaluate the solutions using quality indicators
             evaluateMetrics(result);

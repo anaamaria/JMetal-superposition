@@ -50,7 +50,7 @@ public class PISAHypervolume extends Hypervolume {
    */
   @Override
   public double compute(double[][] front) {
-    return hypervolume(front, referenceFront);
+    return hypervolume(front);
   }
 
   @Override
@@ -188,14 +188,8 @@ public class PISAHypervolume extends Hypervolume {
    * @param front          The front
    * @param referenceFront The true pareto front
    */
-  private double hypervolume(double[][] front, double[][] referenceFront) {
-    double[][] invertedFront;
-    invertedFront = VectorUtils.getInvertedFront(front);
-
-    int numberOfObjectives = referenceFront[0].length;
-
-    // STEP4. The hypervolume (control is passed to the Java version of Zitzler code)
-    return this.calculateHypervolume(invertedFront, invertedFront.length, numberOfObjectives);
+  private double hypervolume(double[][] front) {
+    return this.calculateHypervolume(front, front.length, front[0].length);
   }
 
   @Override
