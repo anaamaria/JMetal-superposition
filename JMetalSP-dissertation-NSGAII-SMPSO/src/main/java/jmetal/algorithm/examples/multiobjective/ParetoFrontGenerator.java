@@ -3,7 +3,6 @@ package jmetal.algorithm.examples.multiobjective;
 import java.util.ArrayList;
 import java.util.List;
 
-import jmetal.core.solution.Solution;
 import jmetal.core.solution.doublesolution.DoubleSolution;
 
 public class ParetoFrontGenerator {

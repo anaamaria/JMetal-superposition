@@ -28,7 +28,7 @@ public abstract class AbstractSuperPositionGAPSOCombinator<S extends Solution<?>
         bothAlgorithmsFinished = false;
     }
 
-    protected abstract List<S> ApplySuperPosition(); //am facut asta protected, inainte era public abstract void (vezi pe git)
+    protected abstract List<S> ApplySuperPosition();
 
     public void start()
     {

@@ -1,8 +1,14 @@
 package jmetal.algorithm.examples.superposition;
 
+import jmetal.algorithm.examples.AlgorithmRunner;
+import jmetal.algorithm.examples.multiobjective.ParetoFrontGenerator;
 import jmetal.algorithm.examples.superposition.NSGAIII_SMPSO.SuperPositionCombinator1;
+import jmetal.algorithm.examples.superposition.algorithms.SuperPositionNSGAII;
 import jmetal.algorithm.examples.superposition.algorithms.SuperPositionNSGAIII;
 import jmetal.algorithm.examples.superposition.algorithms.SuperPositionSMPSO;
+import jmetal.algorithm.multiobjective.nsgaii.NSGAII;
+import jmetal.algorithm.multiobjective.nsgaii.NSGAIIBuilder;
+import jmetal.algorithm.multiobjective.nsgaii.NSGAIIWrapper;
 import jmetal.algorithm.multiobjective.nsgaiii.NSGAIII;
 import jmetal.algorithm.multiobjective.nsgaiii.NSGAIIIBuilder;
 import jmetal.algorithm.multiobjective.nsgaiii.NSGAIIIWrapper;
@@ -19,21 +25,48 @@ import jmetal.core.operator.selection.SelectionOperator;
 import jmetal.core.operator.selection.impl.BinaryTournamentSelection;
 import jmetal.core.problem.doubleproblem.impl.AbstractDoubleProblem;
 import jmetal.core.problem.doubleproblem.impl.GapProblem;
+import jmetal.core.qualityindicator.impl.SetCoverage;
+import jmetal.core.qualityindicator.impl.hypervolume.impl.PISAHypervolume;
 import jmetal.core.solution.doublesolution.DoubleSolution;
+import jmetal.core.util.JMetalLogger;
 import jmetal.core.util.archive.BoundedArchive;
 import jmetal.core.util.archive.impl.CrowdingDistanceArchive;
 import jmetal.core.util.comparator.RankingAndCrowdingDistanceComparator;
 import jmetal.core.util.errorchecking.JMetalException;
 import jmetal.core.util.evaluator.impl.SequentialSolutionListEvaluator;
+import jmetal.problem.multiobjective.dtlz.DTLZ1;
 
 import java.util.List;
 
 public class MainClass2 {
     public static void main(String[] args) throws JMetalException
     {
-        AbstractDoubleProblem problem = new GapProblem(6, 2);
+        //AbstractDoubleProblem problem = new GapProblem(6, 2); //3 2
+        AbstractDoubleProblem problem = new DTLZ1(6,2); //3 2
 
-        // PARAMETERS for NSGAIII
+        // // PARAMETERS for NSGAIII
+        // double crossoverProbability1 = 0.9;
+        // double crossoverDistributionIndex1 = 20.0;
+        // CrossoverOperator<DoubleSolution> crossover1 = new SBXCrossover(crossoverProbability1, crossoverDistributionIndex1);
+
+        // double mutationProbability1 = 1.0 / problem.numberOfVariables();
+        // double mutationDistributionIndex1 = 20.0;
+        // MutationOperator<DoubleSolution> mutation1 = new PolynomialMutation(mutationProbability1, mutationDistributionIndex1);
+
+        // SelectionOperator<List<DoubleSolution>, DoubleSolution> selection1 = new BinaryTournamentSelection<>(new RankingAndCrowdingDistanceComparator<>());
+
+        // // BUILD NSGAIII
+        // NSGAIII<DoubleSolution> nsgaIII =
+        //         new NSGAIIIBuilder<>(problem)
+        //                 .setCrossoverOperator(crossover1)
+        //                 .setMutationOperator(mutation1)
+        //                 .setSelectionOperator(selection1)
+        //                 .setPopulationSize(10)
+        //                 .setMaxIterations(10)
+        //                 .setNumberOfDivisions(4)
+        //                 .build();
+
+        // PARAMETERS for NSGAII
         double crossoverProbability1 = 0.9;
         double crossoverDistributionIndex1 = 20.0;
         CrossoverOperator<DoubleSolution> crossover1 = new SBXCrossover(crossoverProbability1, crossoverDistributionIndex1);
@@ -44,20 +77,17 @@ public class MainClass2 {
 
         SelectionOperator<List<DoubleSolution>, DoubleSolution> selection1 = new BinaryTournamentSelection<>(new RankingAndCrowdingDistanceComparator<>());
 
-        // BUILD NSGAIII
-        NSGAIII<DoubleSolution> nsgaIII =
-                new NSGAIIIBuilder<>(problem)
-                        .setCrossoverOperator(crossover1)
-                        .setMutationOperator(mutation1)
-                        .setSelectionOperator(selection1)
-                        .setPopulationSize(10)
-                        .setMaxIterations(10)
-                        .setNumberOfDivisions(4)
-                        .build();
+        NSGAIIBuilder<DoubleSolution> builder = new NSGAIIBuilder<DoubleSolution>(problem, crossover1, mutation1, 5); //100
+        builder.setMaxEvaluations(10)
+                .setMatingPoolSize(2);
+
+
+        // // Build and run NSGA-II algorithm
+         NSGAII<DoubleSolution> algorithm = builder.build();
 
         // PARAMETERS + BUILD for SMPSO
         //DoubleProblem problem = (DoubleProblem) ProblemFactory.<DoubleSolution>loadProblem(problemName);
-        BoundedArchive<DoubleSolution> archive = new CrowdingDistanceArchive<>(100);
+        BoundedArchive<DoubleSolution> archive = new CrowdingDistanceArchive<>(2);
 
         double mutationProbability = 1.0 / problem.numberOfVariables();
         double mutationDistributionIndex = 20.0;
@@ -66,35 +96,63 @@ public class MainClass2 {
         SMPSO smpso = new SMPSOBuilder(problem, archive)
                 .setMutation(mutation)
                 .setMaxIterations(10)
-                .setSwarmSize(10)
+                .setSwarmSize(5)
                 .setSolutionListEvaluator(new SequentialSolutionListEvaluator<DoubleSolution>())
                 .build();
 
-        GeneticAlgorithmWrapper<DoubleSolution> nsgaIIIWrapper
-                = new NSGAIIIWrapper<>(nsgaIII);
+        // GeneticAlgorithmWrapper<DoubleSolution> nsgaIIWrapper
+        //         = new NSGAIIWrapper<>(algorithm);
 
-        ParticleSwarmWrapper<DoubleSolution> smpsoWrapper
-                = new SMPSOWrapper<>(smpso);
+        // ParticleSwarmWrapper<DoubleSolution> smpsoWrapper
+        //         = new SMPSOWrapper<>(smpso);
 
-        AbstractSuperPositionGA<DoubleSolution, List<DoubleSolution>> superPositionNSGAIII
-                = new SuperPositionNSGAIII<>(nsgaIIIWrapper);
+        //  AbstractSuperPositionGA<DoubleSolution, List<DoubleSolution>> superPositionNSGAII
+        //          = new SuperPositionNSGAII<>(nsgaIIWrapper);
 
-        superPositionNSGAIII.onNewGeneration = () -> System.out.println("New NSGA-III generation done!");
+        //  superPositionNSGAII.onNewGeneration = () -> System.out.println("New NSGA-II generation done!");
 
-        AbstractSuperPositionPSO<DoubleSolution, List<DoubleSolution>> superPositionSMPSO
-                = new SuperPositionSMPSO<>(smpsoWrapper);
+        // AbstractSuperPositionPSO<DoubleSolution, List<DoubleSolution>> superPositionSMPSO
+        //         = new SuperPositionSMPSO<>(smpsoWrapper);
 
-        superPositionSMPSO.onNewGeneration = () -> System.out.println("----------\nNew SMPSO generation done!");
+        // superPositionSMPSO.onNewGeneration = () -> System.out.println("----------\nNew SMPSO generation done!");
 
-        AbstractSuperPositionGAPSOCombinator<DoubleSolution> superPositionCombinator
-                = new SuperPositionCombinator1<>(superPositionNSGAIII, superPositionSMPSO);
+        // AbstractSuperPositionGAPSOCombinator<DoubleSolution> superPositionCombinator
+        //         = new SuperPositionCombinator1<>(superPositionNSGAIII, superPositionSMPSO);
 
-        superPositionCombinator.onNewGenerationDone = () -> System.out.println("New Super-Position generation done!");
-        superPositionCombinator.onSuperPositionDone = () -> {
+        // superPositionCombinator.onNewGenerationDone = () -> System.out.println("New Super-Position generation done!");
+        // superPositionCombinator.onSuperPositionDone = () -> {
 
-            System.out.println("----------\nSuper-Position have finished!");
+        //     System.out.println("----------\nSuper-Position have finished!");
 
-            List<DoubleSolution> result = superPositionCombinator.getResult();
+        //     List<DoubleSolution> result = superPositionCombinator.getResult();
+        //     int noOfObj = problem.numberOfObjectives();
+
+        //     System.out.println("Super-Position result (objectives) population:");
+
+        //     for(int solIndex = 0; solIndex <= result.size() - 1; solIndex++)
+        //     {
+        //         System.out.print("Individual " + solIndex + ": " );
+
+        //         for(int objIndex = 0; objIndex <= noOfObj - 1; objIndex++)
+        //         {
+        //             System.out.print(result.get(solIndex).objectives()[objIndex] + " ");
+        //         }
+
+        //         System.out.println();
+        //     }
+        // };
+
+        // Thread combinatorThread = new Thread(superPositionCombinator);
+        // Thread nsgaIIIThread = new Thread(superPositionNSGAIII);
+        // Thread smpsoThread = new Thread(superPositionSMPSO);
+
+        // combinatorThread.start();
+        // nsgaIIIThread.start();
+        // smpsoThread.start();
+
+        algorithm.run();
+        List<DoubleSolution> result = algorithm.getPopulation();
+        //System.out.println(algorithm.result().size());
             int noOfObj = problem.numberOfObjectives();
 
             System.out.println("Super-Position result (objectives) population:");
@@ -110,14 +168,128 @@ public class MainClass2 {
 
                 System.out.println();
             }
-        };
 
-        Thread combinatorThread = new Thread(superPositionCombinator);
-        Thread nsgaIIIThread = new Thread(superPositionNSGAIII);
-        Thread smpsoThread = new Thread(superPositionSMPSO);
-
-        combinatorThread.start();
-        nsgaIIIThread.start();
-        smpsoThread.start();
+            evaluateMetrics(result);
     }
+
+    public static double[][] normalizeFrontPareto(double[][] frontPareto) {
+        int numSolutions = frontPareto.length;
+        int numObjectives = frontPareto[0].length;
+        double[][] normalizedFrontPareto = new double[numSolutions][numObjectives];
+        double[] minValues = new double[numObjectives];
+        double[] maxValues = new double[numObjectives];
+    
+        // Initialize min and max values
+        for (int i = 0; i < numObjectives; i++) {    
+            minValues[i] = 1e-10;
+            maxValues[i] = 1e-10;
+        }
+    
+        // Find the minimum and maximum values for each objective
+        for (int i = 0; i < numObjectives; i++) {
+            for (int j = 0; j < numSolutions; j++) {
+                double value = frontPareto[j][i];
+                if (value < minValues[i]) {
+                    minValues[i] = value;
+                }
+                if (value > maxValues[i]) {
+                    maxValues[i] = value;
+                }
+            }
+        }
+    
+        // Normalize the frontPareto values using the min-max normalization formula
+        for (int i = 0; i < numSolutions; i++) {
+            for (int j = 0; j < numObjectives; j++) {
+                double value = frontPareto[i][j];
+                if (maxValues[j] == minValues[j]) {
+                    normalizedFrontPareto[i][j] = 0.0; // Handle the case where max and min values are equal to avoid division by zero
+                } else {
+                    double normalizedValue = (value - minValues[j]) / (maxValues[j] - minValues[j]);
+                    normalizedFrontPareto[i][j] = Math.min(Math.max(normalizedValue, 0.0), 1.0); // Ensure the value is within [0, 1]
+                }
+            }
+        }
+    
+        return normalizedFrontPareto;
+    }    
+
+public static void evaluateMetrics(List<DoubleSolution> population) {
+        ParetoFrontGenerator paretoFrontGenerator = new ParetoFrontGenerator();
+
+        double[][] referenceParetoFront = paretoFrontGenerator.generateTrueParetoFront(population);
+
+        // Convert the population to a double array for evaluation
+        double[][] frontPareto = paretoFrontGenerator.convertSolutionsToObjectivesArray(population);
+
+        // Hypervolume
+        // Normalize the frontPareto values to be subunitary
+        double[][] normalizedFrontPareto = normalizeFrontPareto(frontPareto);
+
+        // Calculate the hypervolume
+        PISAHypervolume hypervolume = new PISAHypervolume();
+        double hypervolumeValue = hypervolume.compute(normalizedFrontPareto);
+        // Normalize the hypervolume value to be between [0, 1]
+        double minHypervolume = 0.0; // Minimum possible hypervolume value
+        double maxHypervolume = 1.0; // Maximum possible hypervolume value
+        double normalizedHypervolume = Math.max(0.0, Math.min(1.0, (hypervolumeValue - minHypervolume) / (double)(maxHypervolume - minHypervolume)));
+        JMetalLogger.logger.info("Hypervolume: " + hypervolumeValue + " (normalized: " + normalizedHypervolume + ")");
+
+        // Set Coverage A->B
+        SetCoverage setCoverage = new SetCoverage();
+        double setCoverageValueAB = setCoverage.compute(frontPareto, referenceParetoFront);
+        JMetalLogger.logger.info("Set Coverage (A -> B): " + setCoverageValueAB);
+
+        // Set Coverage B->A
+        double setCoverageValueBA = setCoverage.compute(referenceParetoFront, frontPareto);
+        JMetalLogger.logger.info("Set Coverage (B -> A): " + setCoverageValueBA);
+}
+
+    // public static void evaluateMetrics(List<DoubleSolution> population) {
+    //     ParetoFrontGenerator paretoFrontGenerator = new ParetoFrontGenerator();
+
+    //     double[][] referenceParetoFront = paretoFrontGenerator.generateTrueParetoFront(population);
+
+    //     // Convert the population to a double array for evaluation
+    //     double[][] frontPareto = paretoFrontGenerator.convertSolutionsToObjectivesArray(population);
+
+    //     // double[][] objectivesArray = new double[population.size()][];
+    //     // for (int i = 0; i < population.size(); i++) {
+    //     //     objectivesArray[i] = population.get(i).objectives();
+    //     // }
+
+    //     // int numObjectives = objectivesArray[0].length;
+    //     // int numSolutions = objectivesArray.length;
+
+    //     // double[] maxValues = new double[numObjectives];
+    //     // for (int i = 0; i < numObjectives; i++) {
+    //     //     maxValues[i] = Double.NEGATIVE_INFINITY;
+    //     // }
+
+    //     // for (double[] objective : objectivesArray) {
+    //     //     for (int j = 0; j < numObjectives; j++) {
+    //     //         if (objective[j] > maxValues[j]) {
+    //     //             maxValues[j] = objective[j];
+    //     //         }
+    //     //     }
+    //     // }
+
+    //     // double[][] invertedObjectives = new double[numSolutions][numObjectives];
+    //     // for (int i = 0; i < numSolutions; i++) {
+    //     //     for (int j = 0; j < numObjectives; j++) {
+    //     //         invertedObjectives[i][j] = maxValues[j] - objectivesArray[i][j];
+    //     //     }
+    //     // }
+
+        
+    //     // Hypervolume
+    //     PISAHypervolume hypervolume = new PISAHypervolume();
+    //     double hypervolumeValue = hypervolume.calculateHypervolume(frontPareto, frontPareto.length, frontPareto[0].length);
+    //     JMetalLogger.logger.info("Hypervolume: " + hypervolumeValue);
+
+    //     // Set Coverage A->B
+    //     SetCoverage setCoverage = new SetCoverage();
+    //     double setCoverageValueAB = setCoverage.compute(frontPareto, referenceParetoFront);
+    //     JMetalLogger.logger.info("Set Coverage (A -> B): " + setCoverageValueAB);
+    // }
 }

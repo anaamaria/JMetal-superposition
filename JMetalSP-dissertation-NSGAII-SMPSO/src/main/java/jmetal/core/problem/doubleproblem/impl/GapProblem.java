@@ -12,16 +12,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
-
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
-import org.w3c.dom.Node;
-import org.w3c.dom.NodeList;
-import org.xml.sax.SAXException;
-
 import jmetal.core.problem.integerproblem.IntegerProblem;
 import jmetal.core.solution.doublesolution.DoubleSolution;
 
@@ -48,7 +38,7 @@ import jmetal.core.solution.doublesolution.DoubleSolution;
 public class GapProblem extends AbstractDoubleProblem {
 
     String simulator_executable = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/SimALU.exe";
-    String filePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra/results_27_18_16_24_16_64_2_loop_bpred/16L_27R_18C_4F_results.txt";
+    //String filePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717572188697_default-mibench-offi-stringsearch/results_27_18_16_24_16_64_2_loop_bpred/16L_27R_18C_4F_results.txt";
 
     private static final double COST_PER_ALU = 1;
     private static final double COST_PER_LAYER_CELL = 0.02;
@@ -113,8 +103,7 @@ public class GapProblem extends AbstractDoubleProblem {
         Process process = null;
         try {
             process = Runtime.getRuntime().exec(commandLineToExecute.toString().split(" "));
-            // process.wait(35000);
-            process.waitFor(50000, TimeUnit.MILLISECONDS);
+            process.waitFor(35000, TimeUnit.MILLISECONDS);
         } catch (IOException e) {
             e.printStackTrace();
         } catch (InterruptedException e) {
@@ -149,8 +138,8 @@ public class GapProblem extends AbstractDoubleProblem {
         } catch (Exception e) {
             e.printStackTrace();
         } finally {
-            if (Double.isInfinite(CPI)) {
-                CPI = 0.99;
+            if (Double.isInfinite(ipc) || Double.isInfinite(CPI) || (Double.isInfinite(ipc) && Double.isInfinite(CPI)) ) {
+                CPI = 1/0.99;
             }
             solution.objectives()[0] = CPI;
             solution.objectives()[1] = HC;
@@ -170,7 +159,7 @@ public class GapProblem extends AbstractDoubleProblem {
 
         String benchmarksPath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra";
         // String benchmarksPath = "C:\\Users\\Ana\\Downloads\\JMetalSP-dissertation-NSGAII-SMPSO\\JMetalSP-dissertation-NSGAII-SMPSO\\simulator\\gap_dump_1717572239909_default-mibench-auto-qsort";
-       // String benchmarksPath = "C:\\Users\\Ana\\Downloads\\JMetalSP-dissertation-NSGAII-SMPSO\\JMetalSP-dissertation-NSGAII-SMPSO\\simulator\\gap_dump_1717572188697_default-mibench-offi-stringsearch";
+        //String benchmarksPath = "C:\\Users\\Ana\\Downloads\\JMetalSP-dissertation-NSGAII-SMPSO\\JMetalSP-dissertation-NSGAII-SMPSO\\simulator\\gap_dump_1717572188697_default-mibench-offi-stringsearch";
         
         return getMySimulator() + " " + benchmarksPath + arguments + " /lb";
     }
