@@ -107,19 +107,12 @@ public class GAPRunner extends AbstractAlgorithmRunner {
         double normalizedHypervolume = Math.max(0.0, Math.min(1.0, (hypervolumeValue - minHypervolume) / (double)(maxHypervolume - minHypervolume)));
         JMetalLogger.logger.info("Hypervolume: " + hypervolumeValue + " (normalized: " + normalizedHypervolume + ")");
 
-                // Set Coverage A->B
-                SetCoverage setCoverage = new SetCoverage();
-                double setCoverageValueAB = setCoverage.compute(frontPareto, referenceParetoFront);
-                JMetalLogger.logger.info("Set Coverage (A -> B): " + setCoverageValueAB);
-
-                // Set Coverage B->A
-                double setCoverageValueBA = setCoverage.compute(referenceParetoFront, frontPareto);
-                JMetalLogger.logger.info("Set Coverage (B -> A): " + setCoverageValueBA);
+                
         }
 
         public static void main(String[] args) throws IOException, ParserConfigurationException, SAXException, TransformerException {
-                //AbstractDoubleProblem problem = new GapProblem(6, 2);
-                AbstractDoubleProblem problem = new DTLZ1(6, 2); //3 2
+                AbstractDoubleProblem problem = new GapProblem(6, 2);
+                //AbstractDoubleProblem problem = new DTLZ1(6, 2); //3 2
 
                 // PARAMETERS for NSGAII
                 double crossoverProbability1 = 0.9;
@@ -130,8 +123,8 @@ public class GAPRunner extends AbstractAlgorithmRunner {
                 double mutationDistributionIndex1 = 20.0;
                 MutationOperator<DoubleSolution> mutation1 = new PolynomialMutation(mutationProbability1, mutationDistributionIndex1);
 
-                NSGAIIBuilder<DoubleSolution> builder = new NSGAIIBuilder<DoubleSolution>(problem, crossover1, mutation1, 5);
-                builder.setMaxEvaluations(10)
+                NSGAIIBuilder<DoubleSolution> builder = new NSGAIIBuilder<DoubleSolution>(problem, crossover1, mutation1, 10);
+                builder.setMaxEvaluations(30)
                                 .setMatingPoolSize(2);
 
 
@@ -147,8 +140,8 @@ public class GAPRunner extends AbstractAlgorithmRunner {
 
                 SMPSO smpso = new SMPSOBuilder((DoubleProblem) problem, archive)
                                 .setMutation(mutation)
-                                .setMaxIterations(10)
-                                .setSwarmSize(5) //100
+                                .setMaxIterations(30)
+                                .setSwarmSize(10) //100
                                 .setSolutionListEvaluator(new SequentialSolutionListEvaluator<DoubleSolution>())
                                 .build();
 
@@ -192,8 +185,32 @@ public class GAPRunner extends AbstractAlgorithmRunner {
                                 System.out.println();
                         }
 
-                        //  Evaluate the solutions using quality indicators
-                        evaluateMetrics(result);
+                        smpso.run();
+                        var nsgaIIPopulation = smpso.getSwarm();
+                        for (int solIndex = 0; solIndex <= nsgaIIPopulation.size() - 1; solIndex++) {
+                            System.out.print("Individual nsgaii " + solIndex + ": ");
+
+                            for (int objIndex = 0; objIndex <= noOfObj - 1; objIndex++) {
+                                    System.out.print(result.get(solIndex).objectives()[objIndex] + " ");
+                            }
+
+                            System.out.println();
+                    }
+
+
+                    // Set Coverage A->B
+                SetCoverage setCoverage = new SetCoverage();
+                var result1 = convertSolutionsToObjectivesArray(result);
+                var result2 = convertSolutionsToObjectivesArray(nsgaIIPopulation);
+                double setCoverageValueAB = setCoverage.compute(result1, result2);
+                JMetalLogger.logger.info("Set Coverage (A -> B): " + setCoverageValueAB);
+
+                // Set Coverage B->A
+                double setCoverageValueBA = setCoverage.compute(result2, result1);
+                JMetalLogger.logger.info("Set Coverage (B -> A): " + setCoverageValueBA);
+
+                //  Evaluate the solutions using quality indicators
+                evaluateMetrics(result);
                 };
 
                 Thread combinatorThread = new Thread(superPositionCombinator);
@@ -203,5 +220,13 @@ public class GAPRunner extends AbstractAlgorithmRunner {
                 combinatorThread.start();
                 nsgaIIThread.start();
                 smpsoThread.start();
+        }
+
+        public static double[][] convertSolutionsToObjectivesArray(List<DoubleSolution> solutions) {
+            double[][] objectivesArray = new double[solutions.size()][];
+            for (int i = 0; i < solutions.size(); i++) {
+                objectivesArray[i] = solutions.get(i).objectives();
+            }
+            return objectivesArray;
         }
 }

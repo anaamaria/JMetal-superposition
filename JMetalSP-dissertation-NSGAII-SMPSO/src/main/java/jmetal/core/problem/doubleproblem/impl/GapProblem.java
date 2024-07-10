@@ -115,7 +115,7 @@ public class GapProblem extends AbstractDoubleProblem {
         }
 
         // Read results from the simulator output
-        String ipcFilePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra/results_" +
+        String ipcFilePath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717572188697_default-mibench-offi-stringsearch/results_" +
             this.getActualValueForParameter(solution.variables().get(0), 0) + "_" + this.getActualValueForParameter(solution.variables().get(1), 1) + "_" + this.getActualValueForParameter(solution.variables().get(2), 2) + "_24_" + this.getActualValueForParameter(solution.variables().get(3), 3) + "_" + this.getActualValueForParameter(solution.variables().get(4), 4) + "_" + this.getActualValueForParameter(solution.variables().get(5), 5) + "_loop_bpred/" +
             this.getActualValueForParameter(solution.variables().get(2), 2) + "L_" + this.getActualValueForParameter(solution.variables().get(0), 0) + "R_" + this.getActualValueForParameter(solution.variables().get(1), 1) + "C_4F_results.txt";
 
@@ -157,9 +157,9 @@ public class GapProblem extends AbstractDoubleProblem {
             arguments += " " + getActualValueForParameter(solution.variables().get(i), i);
         }
 
-        String benchmarksPath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra";
+       // String benchmarksPath = "C:/Users/Ana/Downloads/JMetalSP-dissertation-NSGAII-SMPSO/JMetalSP-dissertation-NSGAII-SMPSO/simulator/gap_dump_1717571900584_default-mibench-netw-dijkstra";
         // String benchmarksPath = "C:\\Users\\Ana\\Downloads\\JMetalSP-dissertation-NSGAII-SMPSO\\JMetalSP-dissertation-NSGAII-SMPSO\\simulator\\gap_dump_1717572239909_default-mibench-auto-qsort";
-        //String benchmarksPath = "C:\\Users\\Ana\\Downloads\\JMetalSP-dissertation-NSGAII-SMPSO\\JMetalSP-dissertation-NSGAII-SMPSO\\simulator\\gap_dump_1717572188697_default-mibench-offi-stringsearch";
+        String benchmarksPath = "C:\\Users\\Ana\\Downloads\\JMetalSP-dissertation-NSGAII-SMPSO\\JMetalSP-dissertation-NSGAII-SMPSO\\simulator\\gap_dump_1717572188697_default-mibench-offi-stringsearch";
         
         return getMySimulator() + " " + benchmarksPath + arguments + " /lb";
     }
